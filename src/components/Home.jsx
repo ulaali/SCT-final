@@ -28,9 +28,14 @@ export default function Home() {
         </div>
          <p>Recent Books</p>
            <Carousel responsive={data.responsive}>
-           {data.Latest.map((books)=>{
-            <Book image={books?.books?.book_image} width={books?.books?.book_image_width}  height={books?.books?.book_image_height} author={books?.books?.author} title={books?.books?.title} rate='4.5/5'/>
+            
+            {data.Latest?.results?.books?.map((book)=>{
+           return <div><Book image={book.book_image} width={book.book_image_width}  height={book.book_image_height} author={book.author} title={book.title} rate='4.5/5'/>
+           </div>
            })}
+           
+            
+            
            </Carousel>
            
         </div>

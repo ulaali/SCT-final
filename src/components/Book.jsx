@@ -12,7 +12,7 @@ export default function Book({image,author,title,width,height,rate}) {
       <CardActionArea>
         <CardMedia
           component="img"
-          height={height}
+          height={200}
           image={image}
           alt="green iguana"
         />
