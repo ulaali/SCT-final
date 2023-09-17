@@ -7,7 +7,7 @@ background: linear-gradient(0deg, rgba(61,2,104,1) 0%, rgba(56,13,83,1) 64%, rgb
     align-items: center;
     justify-content: space-around;
     width: 80%;
-    border-radius: 30px;
+    border-radius: 16px;
     margin-left: 100px;
     margin-top: 25px;
     color: white;
@@ -24,3 +24,6 @@ background: linear-gradient(0deg, rgba(61,2,104,1) 0%, rgba(56,13,83,1) 64%, rgb
    margin-left: 30px;
 }
 
+h2{
+    font-weight: 300;
+}

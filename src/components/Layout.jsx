@@ -10,7 +10,6 @@ export default function Home({children}) {
      <Topbar/>
      {children}
      </div>
-
     </div>
   );
 }

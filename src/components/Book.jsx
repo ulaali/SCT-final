@@ -8,11 +8,12 @@ import { CardActionArea } from '@mui/material';
 export default function Book({image,author,title,width,height,rate}) {
   return (
     <div>
- <Card sx={{ maxWidth: 345 }}>
+ <Card sx={{ maxWidth: 350 }}>
       <CardActionArea>
         <CardMedia
           component="img"
           height={200}
+          width={width}
           image={image}
           alt="green iguana"
         />
@@ -22,7 +23,7 @@ export default function Book({image,author,title,width,height,rate}) {
           </Typography>
           <Typography variant="body2" color="text.secondary">
             By : {author}
-          </Typography>
+          </Typography><br/>
           <Typography variant="body3" color="text.secondary">
             {rate}
           </Typography>

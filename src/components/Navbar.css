@@ -10,11 +10,14 @@ ul li{
     list-style-type: none;
     font-weight:300;
     margin-top: 25px;
+    text-align: left;
+    
+}
+.Link{
+  text-decoration: none;
+  color: black;
 }
 
-ul li::selection{
-    font-weight: bold;
-}
 
 
 .hamburger{

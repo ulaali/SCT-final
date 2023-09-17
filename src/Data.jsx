@@ -3,9 +3,11 @@ import { createContext, useState ,useEffect} from "react";
 const Context = createContext();
 
 export function Data({ children }) {
-  const api='https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?&api-key=i9NjHDB2X3wakPuA4UE9uglGpAnTeUMm'
+  const api='https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?&limit=10&api-key=i9NjHDB2X3wakPuA4UE9uglGpAnTeUMm'
+  const api2='https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=i9NjHDB2X3wakPuA4UE9uglGpAnTeUMm'
   const [time, settime] = useState(new Date());
   const [date, setdate] = useState(new Date());
+  const [bold, setBold] = useState(false)
 
   useEffect(()=>{
     setInterval(()=>{settime(new Date())},1000)
@@ -32,13 +34,19 @@ export function Data({ children }) {
     }}
    const [Latest, setLatest] = useState({});
    useEffect(()=>{
-     fetch(api).
-     then((res)=>res.json())
-     .then((b)=>setLatest(b))
+     fetch(api).then((res)=>res.json()).then((b)=>setLatest(b))
    },[])
-   console.log(Latest);
+
+
+   const [articles, setArticles] = useState([]);
+   useEffect(()=>{
+    fetch(api2).then((res)=>res.json()).then((a)=>setArticles(a))
+  },[])
+
+  //  console.log(Latest);
+   console.log(articles);
   return (
-    <Context.Provider value={{time,date,responsive,Latest}}>
+    <Context.Provider value={{time,date,responsive,Latest,bold,setBold,articles}}>
       {children}
     </Context.Provider>
   );
