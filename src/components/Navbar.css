@@ -8,14 +8,14 @@
 
 ul li{
     list-style-type: none;
-    font-weight:300;
+    font-weight:400;
     margin-top: 25px;
     text-align: left;
     
 }
 .Link{
   text-decoration: none;
-  color: black;
+  color: rgb(26, 26, 26);
 }
 
 

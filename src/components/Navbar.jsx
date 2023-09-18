@@ -23,7 +23,6 @@ export default function Navbar() {
    
 <div id="mySidenav" className="sidenav">
 <img src={logo} style={{width:'150px',height:"150px"}}/>
-  <a href="javascript:void(0)" className="closebtn" onClick={()=>closeNav()}>&times;</a>
   <ul>
             <li><Link to="/" className='Link'>Home</Link> </li>
             <li ><Link to="/favourite" className='Link'>Favourite</Link> </li>
@@ -31,9 +30,6 @@ export default function Navbar() {
             <li ><Link to="/about"className='Link' >About</Link> </li>
          </ul>
 </div>
-
-<span className='hamburger' onClick={()=>openNav()}>&#9776;</span>
-
     </div>
   )
 }

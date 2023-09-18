@@ -12,6 +12,11 @@
     justify-content: center;
     align-items: center;
 }
+.search input:focus{
+    border: 2px solid rgb(138, 133, 133);
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
 .search select{
     display: flex;
     flex-direction: row;
@@ -20,7 +25,7 @@
     padding: 0 10px;
     height: 35px;
     font-size: 15px;
-    width: 90px;
+    width: 60px;
     color: rgb(43, 42, 42);
     float: left;
     background-color: #ccc;
