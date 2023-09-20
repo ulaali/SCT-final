@@ -8,13 +8,13 @@ import "react-multi-carousel/lib/styles.css";
 import "./Home.css";
 export default function Home() {
   const data = useContext(Context);
-
+  
   return (
     <div style={{ backgroundColor: "#F3F3F7" }}>
       <div className="hero">
         <div>
           <h1>
-            Explore Hubdreds Of <span style={{color:'#F4683C'}}>Free</span>
+            Explore Hundreds Of <span style={{ color: "#F4683C" }}>Free</span>
             <br /> Books Online
           </h1>
           <p>
@@ -39,16 +39,16 @@ export default function Home() {
           )}
         </div>
         <h2>Recent Books</h2>
-   
+
         <Carousel responsive={data.responsive}>
-          {data.Latest &&
-            data.Latest?.results?.books?.map((book) => {
+          {
+            data.convertedLatest.map((book) => {
               return (
                 <div>
                   <Book
-                    image={book.book_image}
-                    width={book.book_image_width}
-                    height={book.book_image_height}
+                    image={book.image}
+                    // width={book.book_image_width}
+                    // height={book.book_image_height}
                     author={book.author}
                     title={book.title}
                     rate="4.5/5"
@@ -59,43 +59,41 @@ export default function Home() {
         </Carousel>
 
         <h2>Most Famouse Books</h2>
- 
-        <Carousel responsive={data.responsive}>
- 
-          {data.famous &&
-            data.famous?.map((book) => {
+
+        <Carousel responsive={data.responsive}> 
+          {
+            data.convertedFamous.map((book) => {
               return (
                 <div>
                   <Book
-                    image={book.image_url}
+                    image={book.image}
                     height={445}
-                    author={book.authors}
+                    author={book.author}
                     title={book.title}
                     rate="4.5/5"
                   />
                 </div>
               );
-            })}
-        </Carousel>
+            })} 
+         </Carousel>
 
         <h2>Explore Articles</h2>
-        <Carousel responsive={data.responsive}>
-       
-          {data.articles &&
-            data.articles?.map((article) => {
+        <Carousel responsive={data.responsive}> 
+           {
+            data.convertedArticle.map((article) => {
               return (
                 <div>
                   <Book
-                    image={article.img_src}
+                    image={article.image}
                     height={445}
-                    author={article.authors}
+                    author={article.author}
                     title={article.title}
                     rate="4.5/5"
                   />
                 </div>
               );
-            })}
-        </Carousel>  
+            })} 
+         </Carousel>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ import { CardActionArea } from "@mui/material";
 export default function Book({ image, author, title, rate }) {
   return ( //sx={{ maxWidth: 300 }}
     <div>
-      <Card  style={{width:'320px'}}>
+      <Card sx={{ maxWidth: 320}}>
         <CardActionArea>
           <CardMedia
             component="img"

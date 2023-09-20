@@ -1,6 +1,8 @@
 import { ArtTrack } from "@mui/icons-material";
 import axios from "axios";
 import { createContext, useState, useEffect, useRef } from "react";
+import _ from 'lodash'
+
 const Context = createContext();
 
 export function Data({ children }) {
@@ -44,19 +46,35 @@ export function Data({ children }) {
   };
 
    useEffect(()=>{
-    axios.get(api).then(res=>{setLatest(res.data)})
+    axios.get(api).then(res=>{setLatest(res.data.results.books)})
 
   },[])
+  const convertedLatest = _.map(Latest, (item) => ({
+    title: item.title,
+    author: item.author,
+    image: item.book_image,
+  }));
 
   useEffect(()=>{
     axios.get(api2).then(res=>{setFamous(res.data)})
 
   },[])
 
+  const convertedFamous = _.map(famous, (item) => ({
+    title: item.title,
+    author: item.authors,
+    image: item.image_url,
+  }));
+
   useEffect(()=>{
     axios.get(api3).then(res=>{setArticles(res.data)})
 
   },[])
+  const convertedArticle = _.map(articles, (item) => ({
+    title: item.title,
+    author: item.authors,
+    image: item.img_src,
+  }));
 
   const [open, setOpen] = useState(false);
 
@@ -89,11 +107,8 @@ export function Data({ children }) {
         time,
         date,
         responsive,
-        Latest,
         bold,
         setBold,
-        famous,
-        articles,
         handleFocus,
         inputRef,
         handleClickOpen1,
@@ -104,6 +119,10 @@ export function Data({ children }) {
         setOpensearch,
         handleClickOpen2,
         handleClose2,
+        convertedLatest,
+        convertedFamous,
+        convertedArticle
+        
       }}
     >
       {children}
