@@ -20,8 +20,13 @@ export default function Topbar() {
           <option value="Indoor">Indoor</option>
           <option value="Aquatics">Aquatics</option>
         </select>
-        <input type="text" placeholder="Search..." ref={data.inputRef} onClick={data.handleClickOpen2} ></input>
-        <Searchpage/>
+        <input
+          type="text"
+          placeholder="Search..."
+          ref={data.inputRef}
+          onClick={data.handleClickOpen2}
+        ></input>
+        <Searchpage />
       </div>
       <p>
         <AccessTimeIcon sx={{ color: deepOrange[600] }} fontSize="small" />{" "}
@@ -29,10 +34,19 @@ export default function Topbar() {
         <CalendarMonthIcon sx={{ color: deepOrange[600] }} fontSize="small" />{" "}
         {data.date.toLocaleDateString()}
       </p>
-      <button className="signin" onClick={data.handleClickOpen1}>
-        Sign in
-      </button>
-      <Signin />
+
+      {data.isAuth ? (
+        <button className="signin" onClick={data.signUserOut}>
+          Sign Out
+        </button>
+      ) : (
+        <>
+          <button className="signin" onClick={data.handleClickOpen1}>
+            Sign in
+          </button>
+          <Signin />
+        </>
+      )}
     </div>
   );
 }

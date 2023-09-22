@@ -2,7 +2,10 @@ import { ArtTrack } from "@mui/icons-material";
 import axios from "axios";
 import { createContext, useState, useEffect, useRef } from "react";
 import _ from 'lodash'
-
+import Cookies from "universal-cookie";
+import {auth,provider} from './firbaseConfig';
+import { signInWithPopup,signOut } from "firebase/auth";
+const cookies = new Cookies();
 const Context = createContext();
 
 export function Data({ children }) {
@@ -16,6 +19,8 @@ export function Data({ children }) {
   const [famous, setFamous] = useState([]);
   const [Latest, setLatest] = useState({});
   const [articles, setArticles] = useState([]);
+  const [aauth, setAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(cookies.get("auth-token"));
 
   useEffect(() => {
     setInterval(() => {
@@ -100,7 +105,21 @@ export function Data({ children }) {
   function handleFocus() {
     inputRef.current.focus();
   }
-  console.log(articles);
+  const signInWithGoogle = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      cookies.set("auth-token", result.user.refreshToken);
+      setIsAuth(true);
+
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  const signUserOut = async () => {
+    await signOut(auth);
+    cookies.remove("auth-token");
+    setIsAuth(false);
+  };
   return (
     <Context.Provider
       value={{
@@ -121,7 +140,13 @@ export function Data({ children }) {
         handleClose2,
         convertedLatest,
         convertedFamous,
-        convertedArticle
+        convertedArticle,
+        aauth,
+        setAuth,
+        isAuth,
+        setIsAuth,
+        signInWithGoogle,
+        signUserOut
         
       }}
     >
