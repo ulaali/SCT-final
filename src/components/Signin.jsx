@@ -8,13 +8,10 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Context from "../Data";
 import { useContext } from "react";
-import logo from "../assets/logo.png";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
-import {auth,provider} from '../firbaseConfig';
-import Cookies from "universal-cookie";
-import { signInWithPopup,signOut } from "firebase/auth";
-// import { createUserWithEmailAndPassword,UserCredential } from "firebase/auth";
+import google from "../assets/google.png";
+
 const validationSchema = Yup.object().shape({
   Email: Yup.string().email("invalid email").required("this feild is required"),
   Password: Yup.string()
@@ -24,12 +21,8 @@ const validationSchema = Yup.object().shape({
 });
 
 
-const cookies = new Cookies();
-
 export default function FormDialog() {
   const data = useContext(Context);
-  
-  
 
   return (
     <div>
@@ -44,7 +37,7 @@ export default function FormDialog() {
             Password: "",
           }}
           onSubmit={(values) => {
-             console.log(values.Email,values.Password);
+            console.log(values.Email, values.Password);
           }}
           validationSchema={validationSchema}
         >
@@ -84,27 +77,26 @@ export default function FormDialog() {
                 />
               </DialogContent>
               <DialogActions>
-                <Button
-                  onClick={data.handleClose1}
-                  type="submit"
-                  variant="contained"
-                  style={{ backgroundColor: "#F4683C" }}
-                >
-                  Sign in
-                </Button>
-                <Button
-                  onClick={data.signInWithGoogle}
-                  variant="contained"
-                  style={{ backgroundColor: "#F4683C" }}
-                >
-                  Sign in with google
-                </Button>
-                <Button
-                  onClick={data.handleClose1}
-                  style={{ color: "#F4683C" }}
-                >
-                  Cancel
-                </Button>
+                  <Button
+                    onClick={data.handleClose1}
+                    type="submit"
+                    variant="contained"
+                    style={{ backgroundColor: "#F4683C" }}
+                  >
+                    Sign in
+                  </Button>
+                  <Button
+                    onClick={data.signInWithGoogle}
+                    style={{ backgroundColor: "#F4683C",color:'white' }}
+                  >
+                    Sign in with google
+                  </Button>
+                  <Button
+                    onClick={data.handleClose1}
+                    style={{ color: "#F4683C" }}
+                  >
+                    Cancel
+                  </Button>
               </DialogActions>
             </Form>
           )}

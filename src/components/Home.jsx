@@ -6,9 +6,10 @@ import { useContext } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./Home.css";
+import { Link,useLocation } from "react-router-dom";
 export default function Home() {
   const data = useContext(Context);
-  
+
   return (
     <div style={{ backgroundColor: "#F3F3F7" }}>
       <div className="hero">
@@ -43,8 +44,18 @@ export default function Home() {
         <Carousel responsive={data.responsive}>
           {
             data.convertedLatest.map((book) => {
+              let prop={
+                image:book.image,
+                // width={book.book_image_width}
+                // height={book.book_image_height}
+                author:book.author,
+                title:book.title,
+                rate:"4.5/5",
+              }
               return (
                 <div>
+                 <Link to='/preview' state={prop} style={{textDecoration:'none'}}>
+
                   <Book
                     image={book.image}
                     // width={book.book_image_width}
@@ -52,7 +63,7 @@ export default function Home() {
                     author={book.author}
                     title={book.title}
                     rate="4.5/5"
-                  />
+                  /></Link>
                 </div>
               );
             })}
@@ -63,15 +74,24 @@ export default function Home() {
         <Carousel responsive={data.responsive}> 
           {
             data.convertedFamous.map((book) => {
+              let prop={
+                image:book.image,
+                // width={book.book_image_width}
+                // height={book.book_image_height}
+                author:book.author,
+                title:book.title,
+                rate:"4.5/5",
+              }
               return (
                 <div>
+                   <Link to='/preview' state={prop} style={{textDecoration:'none'}}>
                   <Book
                     image={book.image}
                     height={445}
                     author={book.author}
                     title={book.title}
                     rate="4.5/5"
-                  />
+                  /></Link>
                 </div>
               );
             })} 
@@ -81,15 +101,24 @@ export default function Home() {
         <Carousel responsive={data.responsive}> 
            {
             data.convertedArticle.map((article) => {
+              let prop={
+                image:article.image,
+                height:445,
+                author:article.author,
+                title:article.title,
+                rate:"4.5/5",
+              }
               return (
                 <div>
-                  <Book
+                <Link to='/preview' state={prop} style={{textDecoration:'none'}}>
+                <Book
                     image={article.image}
                     height={445}
                     author={article.author}
                     title={article.title}
                     rate="4.5/5"
                   />
+                </Link> 
                 </div>
               );
             })} 
