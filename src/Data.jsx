@@ -21,7 +21,18 @@ export function Data({ children }) {
   const [articles, setArticles] = useState([]);
   const [aauth, setAuth] = useState(false);
   const [isAuth, setIsAuth] = useState(cookies.get("auth-token"));
-
+  const [value, setValue] = useState(2);
+const [fav, setFav] = useState([]);
+const addfav=(book)=>{
+  const oldfav=[...fav];
+  const newfav=oldfav.concat(book);
+  setFav(newfav);
+};
+const removefav=(id)=>{
+  const oldfav=[...fav];
+  const newfav=oldfav.filter((book)=>book.id !== id);
+  setFav(newfav);
+}
   useEffect(() => {
     setInterval(() => {
       settime(new Date());
@@ -146,7 +157,13 @@ export function Data({ children }) {
         isAuth,
         setIsAuth,
         signInWithGoogle,
-        signUserOut
+        signUserOut,
+        value,
+        setValue,
+        fav,
+        addfav,
+        removefav,
+        setFav
         
       }}
     >
