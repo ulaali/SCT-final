@@ -6,7 +6,7 @@ import { useContext } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./Home.css";
-import { Link,useLocation } from "react-router-dom";
+import { Link} from "react-router-dom";
 export default function Home() {
   const data = useContext(Context);
 
@@ -51,7 +51,11 @@ export default function Home() {
                 author:book.author,
                 title:book.title,
                 rate:"4.5/5",
+                description:book.description,
+                url:book.url,
+                book:book
               }
+              
               return (
                 <div>
                  <Link to='/preview' state={prop} style={{textDecoration:'none'}}>
@@ -81,6 +85,8 @@ export default function Home() {
                 author:book.author,
                 title:book.title,
                 rate:"4.5/5",
+                description:book.description,
+
               }
               return (
                 <div>
@@ -107,6 +113,9 @@ export default function Home() {
                 author:article.author,
                 title:article.title,
                 rate:"4.5/5",
+                description:article.description,
+                url:article.url
+
               }
               return (
                 <div>

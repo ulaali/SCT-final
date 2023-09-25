@@ -17,6 +17,7 @@
 }
 .book-image{
     width: 25%;
+    height: 380px;
     padding: 20px;
     border-radius: 10px;
     background-color: white;
@@ -42,4 +43,8 @@ ul li{
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+}
+
+.desc{
+  margin-left: 45px;
 }

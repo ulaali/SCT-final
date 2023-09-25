@@ -69,6 +69,8 @@ const removefav=(id)=>{
     title: item.title,
     author: item.author,
     image: item.book_image,
+    description:item.description,
+    url:item.book_uri
   }));
 
   useEffect(()=>{
@@ -80,6 +82,7 @@ const removefav=(id)=>{
     title: item.title,
     author: item.authors,
     image: item.image_url,
+    description:item.description
   }));
 
   useEffect(()=>{
@@ -90,8 +93,10 @@ const removefav=(id)=>{
     title: item.title,
     author: item.authors,
     image: item.img_src,
-  }));
+    description:item.tags,
+    url:item.url
 
+  }));
   const [open, setOpen] = useState(false);
 
   const handleClickOpen1 = () => {
@@ -131,6 +136,7 @@ const removefav=(id)=>{
     cookies.remove("auth-token");
     setIsAuth(false);
   };
+  console.log(fav);
   return (
     <Context.Provider
       value={{

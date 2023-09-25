@@ -35,14 +35,19 @@ export default function Preview() {
           <p><img src={accept}style={{width:'2%',height:'2%'}}/> E-book</p>
           <p><img src={accept}style={{width:'2%',height:'2%'}}/> hard cover</p>
           <p><img src={accept}style={{width:'2%',height:'2%'}}/> audio book</p>
-          
    
-        <Button variant='contained' style={{backgroundColor:'#F4683C'}}>Read Now</Button>
-        <button><img src={heartless} style={{width:'4.5%',height:'4.5%'}} /></button>
-        <Button variant='outlined' style={{ color: "#F4683C" ,border:'1px solid #F4683C'}}>Read Later</Button>
+        <Button variant='contained' style={{backgroundColor:'#F4683C',marginRight:'20px'}} href={prop.url}>Read Now</Button>
+        <button><img src={heartless} style={{width:'4.5%',height:'4.5%'}} onClick={()=>{data.addfav(prop.book)}} /></button>
+        <Button variant='outlined' style={{ color: "#F4683C" ,border:'1px solid #F4683C'}} >Read Later</Button>
         </div>
+
+        </div>
+        <div className='desc'>
+        <h4>What is it About?</h4>
+        <p>{prop.description}</p>
         </div>
         
+
             </div>
   )
 }
