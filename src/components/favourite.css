@@ -1,0 +1,25 @@
+.favpage{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    row-gap: 10px;
+    column-gap: 10px;
+    background-color: #F3F3F7;
+    height: fit-content;
+}
+
+
+
+@media only screen and (max-width:1200px) {
+    .favpage {
+        grid-template-columns: auto auto;
+
+    }
+    
+}
+
+@media only screen and (max-width:700px) {
+    .favpage {
+        grid-template-columns: auto ;
+    }
+    
+}

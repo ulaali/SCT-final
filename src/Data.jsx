@@ -33,6 +33,11 @@ const removefav=(id)=>{
   const newfav=oldfav.filter((book)=>book.id !== id);
   setFav(newfav);
 }
+
+const favchecker=(id)=>{
+  const boolean=fav.some((book)=>book.id === id)
+  return boolean
+}
   useEffect(() => {
     setInterval(() => {
       settime(new Date());
@@ -70,7 +75,9 @@ const removefav=(id)=>{
     author: item.author,
     image: item.book_image,
     description:item.description,
-    url:item.book_uri
+    url:item.book_uri,
+    id:item.rank,
+    publisher:item.publisher
   }));
 
   useEffect(()=>{
@@ -82,7 +89,9 @@ const removefav=(id)=>{
     title: item.title,
     author: item.authors,
     image: item.image_url,
-    description:item.description
+    description:item.description,
+    id:item.id,
+    publisher:item.format
   }));
 
   useEffect(()=>{
@@ -94,7 +103,8 @@ const removefav=(id)=>{
     author: item.authors,
     image: item.img_src,
     description:item.tags,
-    url:item.url
+    url:item.url,
+    id:item.id
 
   }));
   const [open, setOpen] = useState(false);
@@ -169,7 +179,8 @@ const removefav=(id)=>{
         fav,
         addfav,
         removefav,
-        setFav
+        setFav,
+        favchecker
         
       }}
     >

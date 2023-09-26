@@ -43,7 +43,7 @@ export default function Home() {
 
         <Carousel responsive={data.responsive}>
           {
-            data.convertedLatest.map((book) => {
+            data.convertedLatest.map((book,index) => {
               let prop={
                 image:book.image,
                 // width={book.book_image_width}
@@ -53,11 +53,13 @@ export default function Home() {
                 rate:"4.5/5",
                 description:book.description,
                 url:book.url,
-                book:book
+                book:book,
+                id:book.id,
+                publisher:book.publisher
               }
               
               return (
-                <div>
+                <div key={book.id}>
                  <Link to='/preview' state={prop} style={{textDecoration:'none'}}>
 
                   <Book
@@ -67,6 +69,7 @@ export default function Home() {
                     author={book.author}
                     title={book.title}
                     rate="4.5/5"
+                    key={index}
                   /></Link>
                 </div>
               );
@@ -77,7 +80,7 @@ export default function Home() {
 
         <Carousel responsive={data.responsive}> 
           {
-            data.convertedFamous.map((book) => {
+            data.convertedFamous.map((book,index) => {
               let prop={
                 image:book.image,
                 // width={book.book_image_width}
@@ -86,10 +89,12 @@ export default function Home() {
                 title:book.title,
                 rate:"4.5/5",
                 description:book.description,
-
+                book:book,
+                id:book.id,
+                publisher:book.publisher
               }
               return (
-                <div>
+                <div key={book.id}>
                    <Link to='/preview' state={prop} style={{textDecoration:'none'}}>
                   <Book
                     image={book.image}
@@ -97,6 +102,8 @@ export default function Home() {
                     author={book.author}
                     title={book.title}
                     rate="4.5/5"
+                    key={index}
+                    
                   /></Link>
                 </div>
               );
@@ -106,7 +113,7 @@ export default function Home() {
         <h2>Explore Articles</h2>
         <Carousel responsive={data.responsive}> 
            {
-            data.convertedArticle.map((article) => {
+            data.convertedArticle.map((article,index) => {
               let prop={
                 image:article.image,
                 height:445,
@@ -114,11 +121,13 @@ export default function Home() {
                 title:article.title,
                 rate:"4.5/5",
                 description:article.description,
-                url:article.url
+                url:article.url,
+                book:article,
+                id:article.id
 
               }
               return (
-                <div>
+                <div key={article.id}>
                 <Link to='/preview' state={prop} style={{textDecoration:'none'}}>
                 <Book
                     image={article.image}
