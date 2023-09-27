@@ -1,4 +1,3 @@
-import { ArtTrack } from "@mui/icons-material";
 import axios from "axios";
 import { createContext, useState, useEffect, useRef } from "react";
 import _ from 'lodash'
@@ -23,6 +22,9 @@ export function Data({ children }) {
   const [isAuth, setIsAuth] = useState(cookies.get("auth-token"));
   const [value, setValue] = useState(2);
 const [fav, setFav] = useState([]);
+const [loading, setloading] = useState(true);
+const [readlater, setReadlater] = useState([]);
+
 const addfav=(book)=>{
   const oldfav=[...fav];
   const newfav=oldfav.concat(book);
@@ -34,8 +36,23 @@ const removefav=(id)=>{
   setFav(newfav);
 }
 
+const addReadLater=(book)=>{
+  const oldRead=[...readlater];
+  const newRead=oldRead.concat(book);
+  setReadlater(newRead);
+};
+const removeRead=(id)=>{
+  const oldRead=[...readlater];
+  const newRead=oldRead.filter((book)=>book.id !== id);
+  setReadlater(newRead);
+}
+
 const favchecker=(id)=>{
   const boolean=fav.some((book)=>book.id === id)
+  return boolean
+}
+const Readlaterchecker=(id)=>{
+  const boolean=readlater.some((book)=>book.id === id)
   return boolean
 }
   useEffect(() => {
@@ -67,7 +84,10 @@ const favchecker=(id)=>{
   };
 
    useEffect(()=>{
-    axios.get(api).then(res=>{setLatest(res.data.results.books)})
+    axios.get(api).then(res=>{
+      setLatest(res.data.results.books)
+      setloading(false);
+     })
 
   },[])
   const convertedLatest = _.map(Latest, (item) => ({
@@ -81,7 +101,11 @@ const favchecker=(id)=>{
   }));
 
   useEffect(()=>{
-    axios.get(api2).then(res=>{setFamous(res.data)})
+    axios.get(api2).then(res=>{
+      setFamous(res.data)
+      setloading(false);
+
+    })
 
   },[])
 
@@ -95,7 +119,11 @@ const favchecker=(id)=>{
   }));
 
   useEffect(()=>{
-    axios.get(api3).then(res=>{setArticles(res.data)})
+    axios.get(api3).then(res=>{
+      setArticles(res.data)
+      setloading(false);
+
+    })
 
   },[])
   const convertedArticle = _.map(articles, (item) => ({
@@ -180,7 +208,12 @@ const favchecker=(id)=>{
         addfav,
         removefav,
         setFav,
-        favchecker
+        favchecker,
+        loading,
+        addReadLater,
+        removeRead,
+        Readlaterchecker,
+        readlater
         
       }}
     >

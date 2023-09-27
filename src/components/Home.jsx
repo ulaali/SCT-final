@@ -7,9 +7,9 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./Home.css";
 import { Link} from "react-router-dom";
+import { Button } from "@mui/material";
 export default function Home() {
   const data = useContext(Context);
-
   return (
     <div style={{ backgroundColor: "#F3F3F7" }}>
       <div className="hero">
@@ -25,10 +25,12 @@ export default function Home() {
             in our online library where you can read and explore the
             <br /> best and most famous books and articles
           </p>
-          <button onClick={data.handleFocus}>Search Now!</button>
+          <button onClick={data.handleClickOpen1}>Sign up</button>
+          <button className="search-btn" onClick={data.handleFocus}>Search Now!</button>
+
         </div>
         <div>
-          <img src={logo} style={{ width: "200px", height: "200px" }} />
+          <img src={logo} style={{ width: "200px", height: "200px" }} alt="logo"/>
         </div>
       </div>
       <div className="home">
@@ -42,44 +44,56 @@ export default function Home() {
         <h2>Recent Books</h2>
 
         <Carousel responsive={data.responsive}>
-          {
-            data.convertedLatest.map((book,index) => {
-              let prop={
-                image:book.image,
-                // width={book.book_image_width}
-                // height={book.book_image_height}
-                author:book.author,
-                title:book.title,
-                rate:"4.5/5",
-                description:book.description,
-                url:book.url,
-                book:book,
-                id:book.id,
-                publisher:book.publisher
-              }
-              
-              return (
-                <div key={book.id}>
-                 <Link to='/preview' state={prop} style={{textDecoration:'none'}}>
+          {   
+          data.loading ? (
+            <div class="lds-default"><div></div><div></div><div></div><div>
+              </div><div></div><div></div><div></div><div></div><div></div>
+              <div></div><div></div><div></div></div>
 
-                  <Book
-                    image={book.image}
-                    // width={book.book_image_width}
-                    // height={book.book_image_height}
-                    author={book.author}
-                    title={book.title}
-                    rate="4.5/5"
-                    key={index}
-                  /></Link>
-                </div>
-              );
-            })}
+          ):
+           
+            data.convertedLatest.map((book,index) => {
+ 
+                let prop={
+                  image:book.image,
+                  // width={book.book_image_width}
+                  // height={book.book_image_height}
+                  author:book.author,
+                  title:book.title,
+                  rate:"4.5/5",
+                  description:book.description,
+                  url:book.url,
+                  book:book,
+                  id:book.id,
+                  publisher:book.publisher
+                }
+                 return(
+                  <div key={book.id}>
+                    <Link to='/preview' state={prop} style={{textDecoration:'none'}}>
+   
+                     <Book
+                       image={book.image}
+                       // width={book.book_image_width}
+                       // height={book.book_image_height}
+                       author={book.author}
+                       title={book.title}
+                       rate="4.5/5"
+                       key={index}
+                     /></Link>
+                   </div>
+                    
+                   ) ;
+                 })}     
         </Carousel>
 
         <h2>Most Famouse Books</h2>
 
         <Carousel responsive={data.responsive}> 
           {
+            data.loading ? (
+              <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+              
+            ):
             data.convertedFamous.map((book,index) => {
               let prop={
                 image:book.image,
@@ -113,6 +127,10 @@ export default function Home() {
         <h2>Explore Articles</h2>
         <Carousel responsive={data.responsive}> 
            {
+            data.loading ? (
+              <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+              
+            ):
             data.convertedArticle.map((article,index) => {
               let prop={
                 image:article.image,

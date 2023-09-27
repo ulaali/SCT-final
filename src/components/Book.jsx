@@ -6,15 +6,16 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
 export default function Book({ image, author, title, rate}) {
-  return ( //sx={{ maxWidth: 300 }}
+  return (
     <div>
-      <Card sx={{ maxWidth: 280}}>
+      <Card sx={{ maxWidth: 300}} style={{padding:'10px',backgroundColor:'white',borderRadius:'10px'}}
+>
         <CardActionArea>
           <CardMedia
             component="img"
-            height={350}
+            height={400}
             image={image}
-            alt="green iguana"
+            alt="book cover"
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
@@ -25,7 +26,7 @@ export default function Book({ image, author, title, rate}) {
             </Typography>
             <br />
             <Typography variant="body3" color="text.secondary">
-              {rate} 
+              {rate}
             </Typography>
           </CardContent>
         </CardActionArea>

@@ -11,6 +11,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    
 }
 .search input:focus{
     border: 2px solid rgb(138, 133, 133);
@@ -43,7 +44,7 @@ select option {
     border-bottom-right-radius: 30px;
     background-color: white;
     padding: 8px;
-    width: 220px;
+    width: 250px;
     outline: none;
 
 }

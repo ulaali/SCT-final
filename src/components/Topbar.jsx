@@ -19,6 +19,8 @@ export default function Topbar() {
           <option value="Indoor">Indoor</option>
           <option value="Aquatics">Aquatics</option>
         </select>
+        <Signin />
+
         <input
           type="text"
           placeholder="Search..."
@@ -43,7 +45,6 @@ export default function Topbar() {
           <button className="signin" onClick={data.handleClickOpen1}>
             Sign in
           </button>
-          <Signin />
         </>
       )}
     </div>

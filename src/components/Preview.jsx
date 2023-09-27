@@ -16,7 +16,7 @@ export default function Preview() {
   return (
     <div className="preview">
       <div className="content">
-        <img src={prop.image} className="book-image" />
+        <img src={prop.image} className="book-image" alt="book cover"/>
         <div>
           <h1>{prop.title}</h1>
           <p>By: {prop.author}</p>
@@ -34,14 +34,14 @@ export default function Preview() {
           </div>
           <p style={{ fontWeight: "bold" }}>Availablity:</p>
           <p>
-            <img src={accept} style={{ width: "2%", height: "2%" }} /> E-book
+            <img src={accept} style={{ width: "2%", height: "2%" }} alt="accept"/> E-book
           </p>
           <p>
-            <img src={accept} style={{ width: "2%", height: "2%" }} /> hard
+            <img src={accept} style={{ width: "2%", height: "2%" }} alt="accept"/> hard
             cover
           </p>
           <p>
-            <img src={accept} style={{ width: "2%", height: "2%" }} /> audio
+            <img src={accept} style={{ width: "2%", height: "2%" }} alt="accept"/> audio
             book
           </p>
 
@@ -61,7 +61,7 @@ export default function Preview() {
               <img
                 src={heart}
                 style={{ width: "4.5%", height: "4.5%" }}
-                
+                alt="heart"
               />
             </button>
            : 
@@ -73,17 +73,29 @@ export default function Preview() {
               <img
                 src={heartless}
                 style={{ width: "4.5%", height: "4.5%" }}
-                
+                alt="heartless"
               />
             </button>
           }
-
-          <Button
+{data.Readlaterchecker(prop.id) ? 
+            <Button
             variant="outlined"
             style={{ color: "#F4683C", border: "1px solid #F4683C" }}
+            onClick={data.removeRead(prop.id)}
           >
-            Read Later
+            Remove from Read Later
           </Button>
+           : 
+           <Button
+            variant="outlined"
+            style={{ color: "#F4683C", border: "1px solid #F4683C" }}
+            onClick={data.addReadLater(prop.id)}
+          >
+            Add to Read Later
+          </Button>
+            
+          }
+          
         </div>
       </div>
       <div className="desc">
