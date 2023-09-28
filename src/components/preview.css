@@ -48,3 +48,11 @@ ul li{
 .desc{
   margin-left: 45px;
 }
+
+.btns{
+     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+}

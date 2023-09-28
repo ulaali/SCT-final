@@ -9,7 +9,9 @@ export default function Favourite() {
   const data = useContext(Context);
 
   return (
-    <div className="favpage">
+    <div className="readlater">
+      <h1>Your Favourite Books</h1>
+<div className="favpage">
       {data.fav.map((book) => {
         let prop = {
           image: book.image,
@@ -41,5 +43,7 @@ export default function Favourite() {
         );
       })}
     </div>
+    </div>
+    
   );
 }

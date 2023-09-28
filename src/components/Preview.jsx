@@ -16,7 +16,7 @@ export default function Preview() {
   return (
     <div className="preview">
       <div className="content">
-        <img src={prop.image} className="book-image" alt="book cover"/>
+        <img src={prop.image} className="book-image" alt="book cover" />
         <div>
           <h1>{prop.title}</h1>
           <p>By: {prop.author}</p>
@@ -34,17 +34,32 @@ export default function Preview() {
           </div>
           <p style={{ fontWeight: "bold" }}>Availablity:</p>
           <p>
-            <img src={accept} style={{ width: "2%", height: "2%" }} alt="accept"/> E-book
+            <img
+              src={accept}
+              style={{ width: "2%", height: "2%" }}
+              alt="accept"
+            />{" "}
+            E-book
           </p>
           <p>
-            <img src={accept} style={{ width: "2%", height: "2%" }} alt="accept"/> hard
-            cover
+            <img
+              src={accept}
+              style={{ width: "2%", height: "2%" }}
+              alt="accept"
+            />{" "}
+            hard cover
           </p>
           <p>
-            <img src={accept} style={{ width: "2%", height: "2%" }} alt="accept"/> audio
-            book
+            <img
+              src={accept}
+              style={{ width: "2%", height: "2%"}}
+              alt="accept"
+            />{" "}
+            audio book
           </p>
 
+          
+          <div className="btns">
           <Button
             variant="contained"
             style={{ backgroundColor: "#F4683C", marginRight: "20px" }}
@@ -52,50 +67,48 @@ export default function Preview() {
           >
             Read Now
           </Button>
-          {data.favchecker(prop.id) ? 
-            <button onClick={() => {
-              // data.isAuth?
-              data.removefav(prop.id);
-              // :alert('you need to sign in first')
-            }}>
+            {data.favchecker(prop.id) ? (
               <img
+                onClick={() => {
+                  // data.isAuth?
+                  data.removefav(prop.id);
+                  // :alert('you need to sign in first')
+                }}
                 src={heart}
-                style={{ width: "4.5%", height: "4.5%" }}
+                style={{ width: "3%", height: "3%",cursor:'pointer' }}
                 alt="heart"
               />
-            </button>
-           : 
-            <button onClick={() => {
-              // data.isAuth?
-              data.addfav(prop.book);
-              // :alert('you need to sign in first')
-            }}>
+            ) : (
               <img
+                onClick={() => {
+                  // data.isAuth?
+                  data.addfav(prop.book);
+                  // :alert('you need to sign in first')
+                }}
                 src={heartless}
-                style={{ width: "4.5%", height: "4.5%" }}
+                style={{ width: "3%", height: "3%",cursor:'pointer' }}
                 alt="heartless"
               />
-            </button>
-          }
-{data.Readlaterchecker(prop.id) ? 
-            <Button
-            variant="outlined"
-            style={{ color: "#F4683C", border: "1px solid #F4683C" }}
-            onClick={data.removeRead(prop.id)}
-          >
-            Remove from Read Later
-          </Button>
-           : 
-           <Button
-            variant="outlined"
-            style={{ color: "#F4683C", border: "1px solid #F4683C" }}
-            onClick={data.addReadLater(prop.id)}
-          >
-            Add to Read Later
-          </Button>
+            )}
             
-          }
-          
+            {data.Readlaterchecker(prop.id) ? (
+              <Button
+                variant="outlined"
+                style={{ color: "#F4683C", border: "1px solid #F4683C" }}
+                onClick={() => data.removeRead(prop.id)}
+              >
+                Remove From Read Later
+              </Button>
+            ) : (
+              <Button
+                variant="outlined"
+                style={{ color: "#F4683C", border: "1px solid #F4683C" }}
+                onClick={() => data.addReadLater(prop.book)}
+              >
+                Add to Read Later
+              </Button>
+            )}
+          </div>
         </div>
       </div>
       <div className="desc">
