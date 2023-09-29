@@ -164,6 +164,7 @@ const Readlaterchecker=(id)=>{
       const result = await signInWithPopup(auth, provider);
       cookies.set("auth-token", result.user.refreshToken);
       setIsAuth(true);
+      
 
     } catch (err) {
       console.error(err);

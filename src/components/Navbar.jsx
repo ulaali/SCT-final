@@ -21,7 +21,7 @@ export default function Navbar() {
   return (
     <div className='navbar' style={{backgroundColor:'white',height:"100%"}}>
    
-<div id="mySidenav" className="sidenav">
+<nav id="mySidenav" className="sidenav">
 <img src={logo} style={{width:'150px',height:"150px"}}/>
   <ul>
             <li><Link to="/" className='Link'>Home</Link> </li>
@@ -29,7 +29,7 @@ export default function Navbar() {
             <li><Link to="/readlater"className='Link' >Read later</Link> </li>
             <li ><Link to="/about"className='Link' >About</Link> </li>
          </ul>
-</div>
+</nav>
     </div>
   )
 }

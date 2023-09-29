@@ -13,10 +13,10 @@ import { Formik, Form } from "formik";
 import google from "../assets/google.png";
 
 const validationSchema = Yup.object().shape({
-  Email: Yup.string().email("invalid email").required("this feild is required"),
+  Name: Yup.string().required("this feild is required"),
   Password: Yup.string()
     .required("this feild is required")
-    .min(3, "too short")
+    .min(6, "too short")
     .max(20, "too long"),
 });
 
@@ -47,21 +47,21 @@ export default function FormDialog() {
                 Registration
               </DialogTitle>
               <DialogContent>
-                <DialogContentText style={{ textAlign: "center" }}>
+                {/* <DialogContentText style={{ textAlign: "center" }}>
                   please enter your email address and <br />
                   password here to register
-                </DialogContentText>
+                </DialogContentText> */}
                 <TextField
                   margin="dense"
-                  id="Email"
-                  label="Email Address"
-                  type="email"
+                  id="name"
+                  label="Name"
+                  type="text"
                   fullWidth
                   variant="standard"
-                  value={values.Email}
+                  value={values.Name}
                   onChange={handleChange}
-                  error={errors.Email && touched.Email}
-                  helperText={errors.Email}
+                  error={errors.Name && touched.Name}
+                  helperText={errors.Name}
                 />
                 <TextField
                   margin="dense"
@@ -76,27 +76,33 @@ export default function FormDialog() {
                   helperText={errors.Password}
                 />
               </DialogContent>
-              <DialogActions>
+              <DialogActions style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',rowGap:'20px'}}>
                   <Button
                     onClick={data.handleClose1}
                     type="submit"
                     variant="contained"
                     style={{ backgroundColor: "#F4683C" }}
                   >
-                    Sign in
+                    Sign Up
                   </Button>
-                  <Button
+                  {/* <Button
                     onClick={data.signInWithGoogle}
                     style={{ backgroundColor: "#F4683C",color:'white' }}
                   >
                     Sign in with google
-                  </Button>
-                  <Button
+                  </Button> */}
+                  {/* <Button
                     onClick={data.handleClose1}
-                    style={{ color: "#F4683C" }}
+                    
                   >
                     Cancel
-                  </Button>
+                  </Button> */}
+                  <div style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',rowGap:'20px'}}>
+                  <DialogContentText>Not A User ?</DialogContentText>
+                  <Button variant="standard" onClick={data.signInWithGoogle} ><img src={google} style={{width:'4%',height:'4%'}}></img> Sign In With Google</Button>
+                  
+                  </div>
+                 
               </DialogActions>
             </Form>
           )}

@@ -1,12 +1,12 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import Rating from "@mui/material/Rating";
-import Context from "../Data";
+import Context from "../../Data";
 import { useContext } from "react";
-import accept from "../assets/accept.png";
+import accept from "../../assets/accept.png";
 import { Button } from "@mui/material";
-import heart from "../assets/heart.png";
-import heartless from "../assets/heartless.png";
+import heart from "../../assets/heart.png";
+import heartless from "../../assets/heartless.png";
 import "./preview.css";
 export default function Preview() {
   const location = useLocation();
@@ -70,9 +70,9 @@ export default function Preview() {
             {data.favchecker(prop.id) ? (
               <img
                 onClick={() => {
-                  // data.isAuth?
-                  data.removefav(prop.id);
-                  // :alert('you need to sign in first')
+                  data.isAuth?
+                  data.removefav(prop.id)
+                  :alert('you need to sign in first')
                 }}
                 src={heart}
                 style={{ width: "3%", height: "3%",cursor:'pointer' }}
@@ -81,9 +81,9 @@ export default function Preview() {
             ) : (
               <img
                 onClick={() => {
-                  // data.isAuth?
-                  data.addfav(prop.book);
-                  // :alert('you need to sign in first')
+                  data.isAuth?
+                  data.addfav(prop.book)
+                  :alert('you need to sign in first')
                 }}
                 src={heartless}
                 style={{ width: "3%", height: "3%",cursor:'pointer' }}
@@ -100,13 +100,17 @@ export default function Preview() {
                 Remove From Read Later
               </Button>
             ) : (
+             
               <Button
                 variant="outlined"
                 style={{ color: "#F4683C", border: "1px solid #F4683C" }}
-                onClick={() => data.addReadLater(prop.book)}
+                onClick={() => 
+                  data.isAuth?
+                  data.addReadLater(prop.book):alert('you need to sign in first')}
               >
                 Add to Read Later
               </Button>
+
             )}
           </div>
         </div>

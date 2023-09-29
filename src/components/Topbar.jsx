@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import "./Topbar.css";
 import Signin from "./Signin";
 import Context from "../Data";
@@ -43,7 +43,7 @@ export default function Topbar() {
       ) : (
         <>
           <button className="signin" onClick={data.handleClickOpen1}>
-            Sign in
+            Sign Up
           </button>
         </>
       )}

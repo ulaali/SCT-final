@@ -1,13 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import { Data } from './Data';
-import Home from './components/Home';
-import Favourite from './components/Favourite';
-import Readlater from './components/Readlater';
-import About from './components/About';
+import Home from './pages/home/Home';
+import Favourite from './pages/fav-readlater/Favourite';
+import Readlater from './pages/fav-readlater/Readlater';
+import About from './pages/about/About';
 import Layout from './components/Layout';
-import Signin from './components/Signin';
-import Preview from './components/Preview';
+import Preview from './pages/preview/Preview';
 
 //'https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=i9NjHDB2X3wakPuA4UE9uglGpAnTeUMm'
 function App() {

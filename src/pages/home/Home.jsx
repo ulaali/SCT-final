@@ -1,19 +1,19 @@
 import React from "react";
-import logo from "../assets/logo.png";
-import Book from "./Book";
-import Context from "../Data";
+import logo from "../../assets/logo.png";
+import Book from "../../components/Book";
+import Qouts from "../../components/Quots";
+import Context from "../../Data";
 import { useContext } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./Home.css";
 import { Link} from "react-router-dom";
-import { Button } from "@mui/material";
 export default function Home() {
   const data = useContext(Context);
   return (
     <div style={{ backgroundColor: "#F3F3F7" }}>
       <div className="hero">
-        <div>
+        <div className="intro" >
           <h1>
             Explore Hundreds Of <span style={{ color: "#F4683C" }}>Free</span>
             <br /> Books Online
@@ -25,14 +25,21 @@ export default function Home() {
             in our online library where you can read and explore the
             <br /> best and most famous books and articles
           </p>
-          <button onClick={data.handleClickOpen1}>Sign up</button>
+          <div className="btns">
+          <button onClick={data.handleClickOpen1}>{data.isAuth? 'Sign Out':'Sign Up'}</button>
           <button className="search-btn" onClick={data.handleFocus}>Search Now!</button>
+          </div>
+          
 
         </div>
-        <div>
-          <img src={logo} style={{ width: "200px", height: "200px" }} alt="logo"/>
-        </div>
+           <div>
+           <Qouts/>
+
+           </div>
+          {/* <img src={logo} style={{ width: "200px", height: "200px" }} alt="logo"/> */}
+      
       </div>
+     
       <div className="home">
         <div>
           {data.time.toLocaleTimeString().includes("PM") ? (

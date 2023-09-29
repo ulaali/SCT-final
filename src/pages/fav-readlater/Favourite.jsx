@@ -1,9 +1,8 @@
 import React from "react";
-import Context from "../Data";
+import Context from "../../Data";
 import { useContext } from "react";
-import Book from "./Book";
+import Book from "../../components/Book";
 import { Link } from "react-router-dom";
-import { Button } from "@mui/material";
 import './favourite.css'
 export default function Favourite() {
   const data = useContext(Context);
