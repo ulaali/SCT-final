@@ -7,6 +7,7 @@ import Readlater from './pages/fav-readlater/Readlater';
 import About from './pages/about/About';
 import Layout from './components/Layout';
 import Preview from './pages/preview/Preview';
+import Searchpage from './components/Searchpage';
 
 //'https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=i9NjHDB2X3wakPuA4UE9uglGpAnTeUMm'
 function App() {

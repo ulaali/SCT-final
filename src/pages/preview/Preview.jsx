@@ -60,19 +60,13 @@ export default function Preview() {
 
           
           <div className="btns">
-          <Button
-            variant="contained"
-            style={{ backgroundColor: "#F4683C", marginRight: "20px" }}
-            href={prop.url}
-          >
-            Read Now
-          </Button>
+          
             {data.favchecker(prop.id) ? (
               <img
                 onClick={() => {
                   data.isAuth?
                   data.removefav(prop.id)
-                  :alert('you need to sign in first')
+                  :alert('you need to sign up first')
                 }}
                 src={heart}
                 style={{ width: "3%", height: "3%",cursor:'pointer' }}
@@ -83,7 +77,7 @@ export default function Preview() {
                 onClick={() => {
                   data.isAuth?
                   data.addfav(prop.book)
-                  :alert('you need to sign in first')
+                  :alert('you need to sign up first')
                 }}
                 src={heartless}
                 style={{ width: "3%", height: "3%",cursor:'pointer' }}
@@ -112,6 +106,13 @@ export default function Preview() {
               </Button>
 
             )}
+            <Button
+            variant="contained"
+            style={{ backgroundColor: "#F4683C", marginRight: "20px" }}
+            href={prop.url}
+          >
+            Read Now
+          </Button>
           </div>
         </div>
       </div>

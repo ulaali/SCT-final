@@ -2,7 +2,7 @@ import React from "react";
 import "./About.css";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import copy from '../../assets/accept.png'
+import copy from '../../assets/copyright.png'
 export default function About() {
   return (
     <div className="about">
