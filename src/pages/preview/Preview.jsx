@@ -8,6 +8,7 @@ import { Button } from "@mui/material";
 import heart from "../../assets/heart.png";
 import heartless from "../../assets/heartless.png";
 import "./preview.css";
+import CommentsSection from "../../components/CommentsSection";
 export default function Preview() {
   const location = useLocation();
   const data = useContext(Context);
@@ -119,6 +120,7 @@ export default function Preview() {
       <div className="desc">
         <h4>What is it About?</h4>
         <p>{prop.description}</p>
+        <CommentsSection book={prop.book}/>
       </div>
     </div>
   );

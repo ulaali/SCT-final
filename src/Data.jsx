@@ -24,6 +24,33 @@ export function Data({ children }) {
 const [fav, setFav] = useState([]);
 const [loading, setloading] = useState(true);
 const [readlater, setReadlater] = useState([]);
+const [search, setSearch] = useState({});
+const [text, setText] = useState('');
+
+
+
+
+useEffect(()=>{
+  fetch(`https://www.googleapis.com/books/v1/volumes?q=${text}`)
+  .then((res) => res.json())
+  .then((res) => {
+    setSearch(res.items);
+    
+  })
+},[text])
+
+const convertedSearch = _.map(search, (item) => ({
+  title: item.volumeInfo?.title,
+  author: item.volumeInfo?.authors?.map((author) => {
+    return author;
+  }),
+  image: item.volumeInfo?.imageLinks?.smallThumbnail,
+  description:item.volumeInfo?.description,
+  url:item.volumeInfo?.previewLink,
+  id:item.id,
+  publisher:item.volumeInfo?.publisher
+}));
+
 
 const addfav=(book)=>{
   const oldfav=[...fav];
@@ -175,7 +202,6 @@ const Readlaterchecker=(id)=>{
     cookies.remove("auth-token");
     setIsAuth(false);
   };
-  console.log(fav);
   return (
     <Context.Provider
       value={{
@@ -214,7 +240,10 @@ const Readlaterchecker=(id)=>{
         addReadLater,
         removeRead,
         Readlaterchecker,
-        readlater
+        readlater,
+        convertedSearch,
+        text,
+        setText
         
       }}
     >

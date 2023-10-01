@@ -11,18 +11,8 @@ import { useContext,useState,useEffect } from "react";
 import { Link } from 'react-router-dom';
 export default function Searchpage() {
     const data = useContext(Context);
-    const [search, setSearch] = useState({});
-    const [text, setText] = useState('');
-
-    useEffect(()=>{
-      fetch(`https://www.googleapis.com/books/v1/volumes?q=${text}`)
-      .then((res) => res.json())
-      .then((res) => {
-        setSearch(res);
-        
-      })
-    },[text])
-console.log(search);
+   
+   
   return (
     <div>
       
@@ -43,8 +33,8 @@ console.log(search);
         <input
           type="text"
           placeholder="Search..."
-          value={text}
-          onChange={(e)=>setText(e.target.value)}
+          value={data.text}
+          onChange={(e)=>data.setText(e.target.value)}
         ></input>
       </div>
         </DialogTitle>
@@ -52,34 +42,31 @@ console.log(search);
           <DialogContentText>
             {/* Search Results Here */}
           </DialogContentText> 
-          {search?.items?.map((result,index)=>{
+        
+          {data.convertedSearch.map((result,index)=>{
             let prop={
-              image:result.volumeInfo?.imageLinks?.smallThumbnail,
+              image:result.image,
               // width={book.book_image_width}
               // height={book.book_image_height}
-              author:result.volumeInfo?.authors?.map((author) => {
-                return author;
-              }),
-              title:result.volumeInfo?.title,
+              author:result.author,
+              title:result.title,
               rate:"4.5/5",
-              description:result.volumeInfo?.description,
-              url:result.volumeInfo?.previewLink,
-              category:result.volumeInfo?.categories,
-              book:result.volumeInfo,
-              id:result.id,
-              publisher:result.volumeInfo?.publisher
+              description:result.description,
+              url:result.url,
+              // category:result.volumeInfo?.categories,
+              book:result,
+              id:index,
+              publisher:result.publisher
             };
             return <div key={result.id}>
             <Link to='/preview'  state={prop} style={{textDecoration:'none'}} onClick={data.handleClose2}>
 
              <Book
-               image={result.volumeInfo?.imageLinks?.smallThumbnail}
+               image={result.image}
                // width={result.result_image_width}
                // height={result.result_image_height}
-               author={result.volumeInfo?.authors?.map((author) => {
-                return author;
-              })}
-               title={result.volumeInfo?.title}
+               author={result.author}
+               title={result.title}
                rate="4.5/5"
                key={index}
              /></Link>
