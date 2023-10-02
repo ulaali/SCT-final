@@ -7,6 +7,7 @@ import Context from "../Data";
 import Book from '../components/Book'
 import axios from "axios";
 import './Topbar.css'
+import './Searchpage.css'
 import { useContext,useState,useEffect } from "react";
 import { Link } from 'react-router-dom';
 export default function Searchpage() {
@@ -19,7 +20,6 @@ export default function Searchpage() {
         <Dialog
         open={data.opensearch}
         onClose={data.handleClose2}
-        // style={{ width: "700px"}}
       >
        
         <DialogTitle style={{ textAlign: "center" }}>
@@ -42,8 +42,8 @@ export default function Searchpage() {
           <DialogContentText>
             {/* Search Results Here */}
           </DialogContentText> 
-        
-          {data.convertedSearch.map((result,index)=>{
+        <div className='res-books'>
+        {data.convertedSearch.map((result,index)=>{
             let prop={
               image:result.image,
               // width={book.book_image_width}
@@ -58,7 +58,7 @@ export default function Searchpage() {
               id:index,
               publisher:result.publisher
             };
-            return <div key={result.id}>
+            return <div key={result.id} >
             <Link to='/preview'  state={prop} style={{textDecoration:'none'}} onClick={data.handleClose2}>
 
              <Book
@@ -72,6 +72,9 @@ export default function Searchpage() {
              /></Link>
            </div>
           })}
+
+        </div>
+          
         </DialogContent>
         
       </Dialog>
