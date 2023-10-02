@@ -1,7 +1,7 @@
 .preview{
    
     background-color: #F3F3F7;
-    height: 100vh;
+    height: fit-content;
 }
 .content{
     display: flex;

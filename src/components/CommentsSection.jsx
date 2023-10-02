@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import Avatar from '@mui/material/Avatar';
+
 import { db, auth } from "../firbaseConfig";
 import {
   collection,
@@ -22,7 +24,6 @@ export default function CommentsSection({book}) {
     useEffect(() => {
         const queryComments = query(messagesRef );
         onSnapshot(queryComments, (data) => {
-        
             let comments=data.docs.map((doc) => {
           return ( { ...doc.data(), id: doc.id })
           });
@@ -49,14 +50,21 @@ export default function CommentsSection({book}) {
           setNewcomment('')
     }
 
-    console.log(comments);
+    // console.log(comments);
 
   return (
     <div
     className='chat-app'
     >
         {comments.map((comment)=>{
-          return  <p>{comment.text}</p>
+          return <div className='comment'>
+            <div className='avatar'><Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            </div>
+          <div>
+          <h4>{comment.user}</h4>
+          <p>{comment.text}</p>
+          </div>  
+          </div> 
         })}
          {/* <div className="messages">
         {comments.map((item) => (
@@ -66,6 +74,8 @@ export default function CommentsSection({book}) {
         ))}
       </div> */}
         <form onSubmit={handleSubmit} className="new-comment-form">
+        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className='avatar2' />
+
             <input placeholder='Add Comment here...' className='new-comment-input' onChange={(e)=>setNewcomment(e.target.value)} value={newcomment}/>
             <button className='comment-button' type='submit'>Comment</button>
         </form>
