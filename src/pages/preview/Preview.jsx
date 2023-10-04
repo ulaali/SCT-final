@@ -120,7 +120,7 @@ export default function Preview() {
       <div className="desc">
         <h4>What is it About?</h4>
         <p>{prop.description}</p>
-        <CommentsSection title={prop.title}/>
+        <CommentsSection book={prop.book}/>
       </div>
     </div>
   );

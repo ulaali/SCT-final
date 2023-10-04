@@ -60,25 +60,22 @@ export default function Searchpage() {
           </div>
         ) : (
           <DialogContent>
-            <DialogContentText>{/* Search Results Here */}</DialogContentText>
+            <DialogContentText>{/* Search books Here */}</DialogContentText>
             <div className="res-books">
-              {data.convertedSearch.map((result, index) => {
+              {data.convertedSearch.map((book, index) => {
                 let prop = {
-                  image: result.image,
-                  // width={book.book_image_width}
-                  // height={book.book_image_height}
-                  author: result.author,
-                  title: result.title,
+                  image: book.image,
+                  author: book.author,
+                  title: book.title,
                   rate: "4.5/5",
-                  description: result.description,
-                  url: result.url,
-                  // category:result.volumeInfo?.categories,
-                  book: result,
+                  description: book.description,
+                  url: book.url,
+                  book: book,
                   id: index,
-                  publisher: result.publisher,
+                  publisher: book.publisher,
                 };
                 return (
-                  <div key={result.id} className="res-book">
+                  <div key={book.id} className="res-book">
                     <Link
                       to="/preview"
                       state={prop}
@@ -86,11 +83,11 @@ export default function Searchpage() {
                       onClick={data.handleClose2}
                     >
                       <Book
-                        image={result.image}
-                        // width={result.result_image_width}
-                        // height={result.result_image_height}
-                        author={result.author}
-                        title={result.title}
+                        image={book.image}
+                        // width={book.book_image_width}
+                        // height={book.book_image_height}
+                        author={book.author}
+                        title={book.title}
                         rate="4.5/5"
                         key={index}
                       />

@@ -15,14 +15,14 @@ import "./Comments.css";
 import Context from "../Data";
 import { useContext } from "react";
 
-export default function CommentsSection({ title }) {
+export default function CommentsSection({ book }) {
   const [newcomment, setNewcomment] = useState("");
   const [comments, setComments] = useState([]);
   const messagesRef = collection(db, "comments");
   const data = useContext(Context);
 
   useEffect(() => {
-    const queryComments = query(messagesRef,where('title',"==", title));
+    const queryComments = query(messagesRef,where('book',"==", book));
    const unsuscribe= onSnapshot(queryComments, (data) => {
       let comments = data.docs.map((doc) => {
         return { ...doc.data(), id: doc.id };
@@ -30,8 +30,8 @@ export default function CommentsSection({ title }) {
       setComments(comments);
     });
 
-    return () => unsuscribe();
-  }, []);
+    // return () => unsuscribe();
+  }, [messagesRef]);
 
   const handleAlert = () => {
     alert("you need to sign up first");
@@ -43,7 +43,7 @@ export default function CommentsSection({ title }) {
       text: newcomment,
       createdAt: serverTimestamp(),
       user: auth.currentUser.displayName,
-      title,
+      book,
     });
     setNewcomment("");
   };
