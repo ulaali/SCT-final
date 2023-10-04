@@ -26,6 +26,8 @@ const [loading, setloading] = useState(true);
 const [readlater, setReadlater] = useState([]);
 const [search, setSearch] = useState({});
 const [text, setText] = useState('');
+const [categoryy, setCategory] = useState('');
+
 
 
 
@@ -38,7 +40,19 @@ useEffect(()=>{
   })
 },[text])
 
+useEffect(()=>{
+  fetch(`https://www.googleapis.com/books/v1/volumes?q=${text}+subject:${categoryy}`)
+  .then((res) => res.json())
+  .then((res) => {
+    setSearch(res.items);
+    setloading(false);
+  })
+},[categoryy,text])
+
+
+
 const convertedSearch = _.map(search, (item) => ({
+  book:item,
   title: item.volumeInfo?.title,
   author: item.volumeInfo?.authors?.map((author) => {
     return author;
@@ -49,9 +63,13 @@ const convertedSearch = _.map(search, (item) => ({
   id:item.id,
   publisher:item.volumeInfo?.publisher,
   category:item.volumeInfo?.categories?.map((cat) => {
+    // console.log(cat);
     return cat;
   }),
 }));
+
+
+
 
 
 const addfav=(book)=>{
@@ -247,7 +265,8 @@ const Readlaterchecker=(id)=>{
         text,
         setText,
         setSearch,
-        search
+        search,
+        setCategory
         
       }}
     >

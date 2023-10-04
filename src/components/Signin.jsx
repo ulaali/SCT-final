@@ -16,7 +16,7 @@ const validationSchema = Yup.object().shape({
   Name: Yup.string().required("this feild is required").min(2,'too short').max(20,'too long'),
   Password: Yup.string()
     .required("this feild is required")
-    .min(6, "too short")
+    .min(6,'too short')
     .max(20, "too long"),
 });
 
@@ -36,13 +36,13 @@ export default function FormDialog() {
             Email: "",
             Password: "",
           }}
-          onSubmit={(values) => {
-            console.log(values.Email, values.Password);
+          onSubmit={(e) => {
+            e.preventDefault();
           }}
           validationSchema={validationSchema}
         >
-          {({ errors, values, handleChange, touched }) => (
-            <Form>
+          {({ errors, values, handleChange, touched,onSubmit }) => (
+            <Form onSubmit={()=>onSubmit}>
               <DialogTitle style={{ textAlign: "center" }}>
                 Registration
               </DialogTitle><br/>

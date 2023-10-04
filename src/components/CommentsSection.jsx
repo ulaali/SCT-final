@@ -15,14 +15,14 @@ import "./Comments.css";
 import Context from "../Data";
 import { useContext } from "react";
 
-export default function CommentsSection({ book }) {
+export default function CommentsSection({ title }) {
   const [newcomment, setNewcomment] = useState("");
   const [comments, setComments] = useState([]);
   const messagesRef = collection(db, "comments");
   const data = useContext(Context);
 
   useEffect(() => {
-    const queryComments = query(messagesRef,where('book',"==", book));
+    const queryComments = query(messagesRef,where('title',"==", title));
    const unsuscribe= onSnapshot(queryComments, (data) => {
       let comments = data.docs.map((doc) => {
         return { ...doc.data(), id: doc.id };
@@ -43,7 +43,7 @@ export default function CommentsSection({ book }) {
       text: newcomment,
       createdAt: serverTimestamp(),
       user: auth.currentUser.displayName,
-      book,
+      title,
     });
     setNewcomment("");
   };
