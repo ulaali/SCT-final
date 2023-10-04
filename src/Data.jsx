@@ -29,13 +29,12 @@ const [text, setText] = useState('');
 
 
 
-
 useEffect(()=>{
   fetch(`https://www.googleapis.com/books/v1/volumes?q=${text}`)
   .then((res) => res.json())
   .then((res) => {
     setSearch(res.items);
-    
+    setloading(false);
   })
 },[text])
 
@@ -48,7 +47,10 @@ const convertedSearch = _.map(search, (item) => ({
   description:item.volumeInfo?.description,
   url:item.volumeInfo?.previewLink,
   id:item.id,
-  publisher:item.volumeInfo?.publisher
+  publisher:item.volumeInfo?.publisher,
+  category:item.volumeInfo?.categories?.map((cat) => {
+    return cat;
+  }),
 }));
 
 
@@ -243,7 +245,9 @@ const Readlaterchecker=(id)=>{
         readlater,
         convertedSearch,
         text,
-        setText
+        setText,
+        setSearch,
+        search
         
       }}
     >

@@ -5,30 +5,46 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Context from "../Data";
 import Book from '../components/Book'
-import axios from "axios";
 import './Topbar.css'
 import './Searchpage.css'
 import { useContext,useState,useEffect } from "react";
 import { Link } from 'react-router-dom';
 export default function Searchpage() {
     const data = useContext(Context);
-   
-   
+
+  const handleCategories=(option)=>{
+    let filterdbooks=data.convertedSearch.filter((book)=>book.volumeInfo?.categories?.includes(option))
+    data.setSearch(filterdbooks)
+  }
+
+
+
   return (
     <div>
       
         <Dialog
         open={data.opensearch}
         onClose={data.handleClose2}
+        fullWidth
+        maxWidth="md"
       >
        
         <DialogTitle style={{ textAlign: "center" }}>
         <div className="search">
         <select>
           <option value="">All</option>
-          <option value="Outdoor">Outdoor</option>
-          <option value="Indoor">Indoor</option>
-          <option value="Aquatics">Aquatics</option>
+          <option value="fictional" onClick={()=>handleCategories('Fictional')}>fictional</option>
+          <option value="Computers"onClick={()=>handleCategories('Computers')}>Computers</option>
+          <option value="Language Arts & Disciplines" onClick={()=>handleCategories('Language Arts & Disciplines')}>Language Arts & Disciplines</option>
+          <option value="Religion" onClick={()=>handleCategories('Religion')}>Religion</option>
+          <option value="Cooking" onClick={()=>handleCategories('Cooking')}>Cooking</option>
+          <option value="Technology"onClick={()=>handleCategories('Technology')}>Technology</option>
+          <option value="Biography"onClick={()=>handleCategories('Biography')}>Biography</option>
+          <option value="Drama" onClick={()=>handleCategories('Drama')}>Drama</option>
+
+
+
+
         </select>
         <input
           type="text"
@@ -38,7 +54,11 @@ export default function Searchpage() {
         ></input>
       </div>
         </DialogTitle>
-        <DialogContent>
+        {data.text==='' ?
+       <div class="lds-default2"><div></div><div></div><div></div><div>
+       </div><div></div><div></div><div></div><div></div><div></div>
+       <div></div><div></div><div></div></div>
+:<DialogContent>
           <DialogContentText>
             {/* Search Results Here */}
           </DialogContentText> 
@@ -58,7 +78,7 @@ export default function Searchpage() {
               id:index,
               publisher:result.publisher
             };
-            return <div key={result.id} >
+            return <div key={result.id} className='res-book'>
             <Link to='/preview'  state={prop} style={{textDecoration:'none'}} onClick={data.handleClose2}>
 
              <Book
@@ -76,6 +96,8 @@ export default function Searchpage() {
         </div>
           
         </DialogContent>
+      }
+        
         
       </Dialog>
     </div>
