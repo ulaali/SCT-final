@@ -30,8 +30,8 @@ export default function CommentsSection({ book }) {
       setComments(comments);
     });
 
-    return () => unsuscribe();
-  }, []);
+    // return () => unsuscribe();
+  }, [messagesRef]);
 
   const handleAlert = () => {
     alert("you need to sign up first");

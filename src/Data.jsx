@@ -26,6 +26,7 @@ const [loading, setloading] = useState(true);
 const [readlater, setReadlater] = useState([]);
 const [search, setSearch] = useState({});
 const [text, setText] = useState('');
+const [categoryy, setCategory] = useState('');
 
 
 
@@ -34,22 +35,40 @@ useEffect(()=>{
   fetch(`https://www.googleapis.com/books/v1/volumes?q=${text}`)
   .then((res) => res.json())
   .then((res) => {
-    setSearch(res.items);
-    
+    setSearch(res);
+    setloading(false);
   })
 },[text])
 
-const convertedSearch = _.map(search, (item) => ({
+useEffect(()=>{
+  fetch(`https://www.googleapis.com/books/v1/volumes?q=${text}+subject:${categoryy}`)
+  .then((res) => res.json())
+  .then((res) => {
+    setSearch(res);
+    setloading(false);
+  })
+},[categoryy,text])
+
+
+const convertedSearch = _.map(search.items, (item) => ({
   title: item.volumeInfo?.title,
-  author: item.volumeInfo?.authors?.map((author) => {
+  author: item.volumeInfo?.authors ? item.volumeInfo?.authors?.map((author) => {
     return author;
-  }),
+  }) :'No author provided',
   image: item.volumeInfo?.imageLinks?.smallThumbnail,
-  description:item.volumeInfo?.description,
+  description:item.volumeInfo?.description ? item.volumeInfo?.description:'No description provided',
   url:item.volumeInfo?.previewLink,
   id:item.id,
-  publisher:item.volumeInfo?.publisher
+  // publisher:item.volumeInfo?.publisher ? item.volumeInfo?.publisher:'No publisher Provided',
+  // category:item.volumeInfo?.categories?.map((cat) => {
+  //   // console.log(cat);
+  //   return cat;
+  // }),
 }));
+
+console.log(convertedSearch);
+
+
 
 
 const addfav=(book)=>{
@@ -243,7 +262,10 @@ const Readlaterchecker=(id)=>{
         readlater,
         convertedSearch,
         text,
-        setText
+        setText,
+        setSearch,
+        search,
+        setCategory
         
       }}
     >
