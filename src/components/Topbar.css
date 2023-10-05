@@ -76,3 +76,31 @@ select option {
   color: white;
   cursor: pointer;
 }
+
+@media  only screen and (max-width:1209px) {
+    .Topbar p{
+        font-size: 0.7rem;
+        width: 25%;
+    }
+   
+}
+
+@media  only screen and (max-width:900px){
+
+
+.Topbar p{
+    display: none;
+}
+.signin{
+    display: none;
+}
+.menu-icon{
+    display: block;
+    position:absolute;
+    top: 1%;
+    left: -37%;
+    width: fit-content;
+    width: 3%;
+    height: 5%;
+}
+}

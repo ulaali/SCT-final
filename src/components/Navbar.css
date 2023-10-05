@@ -1,10 +1,11 @@
-.sidenav{
+/* .sidenav{
  display: flex;
  flex-direction: column;
  align-items: center;
  justify-content: center;
  text-align: center;
  position: fixed;
+ overflow: hidden;
 }
 
 ul li{
@@ -13,17 +14,58 @@ ul li{
     margin-top: 25px;
     text-align: left;
     
-}
+} */
 .Link{
   text-decoration: none;
   color: rgb(26, 26, 26);
 }
 
-@media screen and (max-width:900px) {
-  .sidenav{
-    display: none;
-  }
-  
+nav{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
 }
+.menu-icon {
+  display: none;
+}
+ul{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+}
+ul li{
+  margin-top: 20px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar {
+  height: 60px;
+  background-color: #fef7e5;
+  position: relative;
+}
+
+.menu-icon {
+  display: none;
+}
+
+.nav-elements ul {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
 
 

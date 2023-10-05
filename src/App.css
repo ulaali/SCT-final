@@ -7,15 +7,64 @@
   display: flex;
   flex-direction: column;
 }
-@media screen and (max-width: 800px){
-  .layout{
-    display: flex;
-    flex-direction: row;
-  }
-  .top-content{
-    width: 100%;
-  }
+
+@media screen and (max-width: 900px){
+
+.layout{
+  display: grid;
+  grid-template-columns: 0% 100%;
+
 }
+.top-content{
+ display: flex;
+ flex-direction: column;
+}
+
+
+}
+
 .nav{
   height: 100vh;
 }
+
+
+@media (max-width: 900px) {
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+    margin-left: 350px;
+    margin-top: 20px;
+  }
+
+  .nav-elements {
+    position: absolute;
+    left: 0;
+    top: 60px;
+    background-color: #F3F3F7;
+    width: 0px;
+    height: calc(100vh - 60px);
+    transition: all 0.3s ease-in;
+    overflow: hidden;
+  }
+
+  .nav-elements.active {
+    width: 200px;
+  }
+
+  .nav-elements ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-elements ul li {
+    margin-right: unset;
+    margin-top: 22px;
+  }
+}
+
+
+
+
+
+
+

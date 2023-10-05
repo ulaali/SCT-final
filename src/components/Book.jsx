@@ -4,12 +4,11 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
-
+import '../pages/home/Home.css'
 export default function Book({ image, author, title, rate}) {
   return (
     <div>
-      <Card sx={{ maxWidth: 300}} style={{padding:'10px',backgroundColor:'white',borderRadius:'10px'}}
->
+      <Card style={{padding:'10px',backgroundColor:'white',borderRadius:'10px'}} className="Card">
         <CardActionArea>
           <CardMedia
             component="img"

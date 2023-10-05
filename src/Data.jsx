@@ -27,10 +27,16 @@ const [readlater, setReadlater] = useState([]);
 const [search, setSearch] = useState({});
 const [text, setText] = useState('');
 const [categoryy, setCategory] = useState('');
+const [showNavbar, setShowNavbar] = useState(false)
+
+  const handleShowNavbar = () => {
+    setShowNavbar(!showNavbar)
+  }
 
 
-
-
+  const handleHideNavbar = () => {
+    setShowNavbar(false)
+  }
 useEffect(()=>{
   fetch(`https://www.googleapis.com/books/v1/volumes?q=${text}`)
   .then((res) => res.json())
@@ -221,6 +227,8 @@ const Readlaterchecker=(id)=>{
     cookies.remove("auth-token");
     setIsAuth(false);
   };
+
+  console.log(showNavbar);
   return (
     <Context.Provider
       value={{
@@ -265,7 +273,11 @@ const Readlaterchecker=(id)=>{
         setText,
         setSearch,
         search,
-        setCategory
+        setCategory,
+        handleShowNavbar,
+        showNavbar,
+        setShowNavbar,
+        handleHideNavbar
         
       }}
     >

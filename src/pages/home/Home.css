@@ -161,3 +161,21 @@ h2 {
       transform: scale(1.5);
     }
   }
+
+.Card{
+  width: 300px;
+}
+
+  @media  only screen and (max-width:1200px) {
+    .Card{
+      width: 250px;
+    }
+  }
+  
+
+
+  @media  only screen and (max-width:550px) {
+    .Card{
+      width: 200px;
+    }
+  }
