@@ -90,7 +90,10 @@ export default function Preview() {
               <Button
                 variant="outlined"
                 style={{ color: "#F4683C", border: "1px solid #F4683C" }}
-                onClick={() => data.removeRead(prop.id)}
+                onClick={() => {
+                  data.removeRead(prop.id)
+                  console.log(prop.id);
+                }}
               >
                 Remove From Read Later
               </Button>
@@ -120,7 +123,7 @@ export default function Preview() {
       <div className="desc">
         <h4>What is it About?</h4>
         <p>{prop.description}</p>
-        <CommentsSection book={prop.book}/>
+        <CommentsSection bookTitle={prop.title}/>
       </div>
     </div>
   );

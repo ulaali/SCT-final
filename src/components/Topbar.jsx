@@ -15,10 +15,10 @@ export default function Topbar() {
   
   return (
     <>
-      <img src={menu} alt="men" className="menu-icon" onClick={data.handleShowNavbar}></img>
- 
+    <img src={menu} alt="men" className="menu-icon" onClick={data.handleShowNavbar}></img>
+
     <div className="Topbar">
-    
+
     <div className="search">
       <select onClick={data.handleClickOpen2}>
         <option value="">All</option>

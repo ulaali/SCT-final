@@ -65,14 +65,9 @@ const convertedSearch = _.map(search.items, (item) => ({
   description:item.volumeInfo?.description ? item.volumeInfo?.description:'No description provided',
   url:item.volumeInfo?.previewLink,
   id:item.id,
-  // publisher:item.volumeInfo?.publisher ? item.volumeInfo?.publisher:'No publisher Provided',
-  // category:item.volumeInfo?.categories?.map((cat) => {
-  //   // console.log(cat);
-  //   return cat;
-  // }),
+  book:item
 }));
 
-console.log(convertedSearch);
 
 
 
@@ -148,8 +143,9 @@ const Readlaterchecker=(id)=>{
     image: item.book_image,
     description:item.description,
     url:item.book_uri,
-    id:item.rank,
-    publisher:item.publisher
+    id:item.primary_isbn10,
+    publisher:item.publisher,
+    book:item
   }));
 
   useEffect(()=>{
@@ -166,8 +162,9 @@ const Readlaterchecker=(id)=>{
     author: item.authors,
     image: item.image_url,
     description:item.description,
-    id:item.id,
-    publisher:item.format
+    id:item.num_pages,
+    publisher:item.format,
+    book:item
   }));
 
   useEffect(()=>{
@@ -184,7 +181,8 @@ const Readlaterchecker=(id)=>{
     image: item.img_src,
     description:item.tags,
     url:item.url,
-    id:item.id
+    id:item.id,
+    book:item
 
   }));
   const [open, setOpen] = useState(false);
@@ -228,7 +226,6 @@ const Readlaterchecker=(id)=>{
     setIsAuth(false);
   };
 
-  console.log(showNavbar);
   return (
     <Context.Provider
       value={{

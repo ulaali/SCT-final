@@ -56,3 +56,131 @@ ul li{
     justify-content: space-between;
     
 }
+
+@media only screen and (max-width:760px) {
+    .preview{
+        width: 107%;
+    }
+}
+
+
+
+@media only screen and (max-width:680px) {
+    .preview{
+        width: 115%;
+    }
+}
+
+
+@media only screen and (max-width:660px) {
+    .preview{
+        width: 118%;
+    }
+}
+
+@media only screen and (max-width:640px) {
+    .preview{
+        width: 122%;
+    }
+}
+
+@media only screen and (max-width:620px) {
+    .preview{
+        width: 125%;
+    }
+}
+
+
+@media only screen and (max-width:600px) {
+    .preview{
+        width: 132%;
+    }
+}
+
+
+
+@media only screen and (max-width:580px) {
+    .preview{
+        width: 135%;
+    }
+}
+
+
+@media only screen and (max-width:560px) {
+    .preview{
+        width: 138%;
+    }
+}
+
+@media only screen and (max-width:540px) {
+    .preview{
+        width: 143%;
+    }
+}
+
+@media only screen and (max-width:520px) {
+    .preview{
+        width: 148%;
+    }
+}
+
+
+
+@media only screen and (max-width:500px) {
+    .preview{
+        width: 155%;
+    }
+}
+
+
+@media only screen and (max-width:480px) {
+    .preview{
+        width: 165%;
+    }
+}
+
+
+@media only screen and (max-width:460px) {
+    .preview{
+        width: 175%;
+        height: 180vh;
+    }
+}
+
+@media only screen and (max-width:420px) {
+    .preview{
+        width: 175%;
+    }
+}
+
+@media only screen and (max-width:400px) {
+    .preview{
+        width: 189%;
+    }
+}
+
+@media only screen and (max-width:380px) {
+    .preview{
+        width: 264%;
+    }
+}
+
+@media only screen and (max-width:360px) {
+    .preview{
+        width: 210%;
+        height: 200vh;
+    }
+}
+
+@media only screen and (max-width:320px) {
+    .preview{
+        width: 210%;
+    }
+}
+
+@media only screen and (max-width:300px) {
+    .preview{
+        width: 240%;
+        height: 230vh;
+    }
+}

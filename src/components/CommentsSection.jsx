@@ -15,14 +15,14 @@ import "./Comments.css";
 import Context from "../Data";
 import { useContext } from "react";
 
-export default function CommentsSection({ book }) {
+export default function CommentsSection({ bookTitle }) {
   const [newcomment, setNewcomment] = useState("");
   const [comments, setComments] = useState([]);
   const messagesRef = collection(db, "comments");
   const data = useContext(Context);
 
   useEffect(() => {
-    const queryComments = query(messagesRef,where('book',"==", book));
+    const queryComments = query(messagesRef,where('bookTitle',"==", bookTitle));
    const unsuscribe= onSnapshot(queryComments, (data) => {
       let comments = data.docs.map((doc) => {
         return { ...doc.data(), id: doc.id };
@@ -30,7 +30,7 @@ export default function CommentsSection({ book }) {
       setComments(comments);
     });
 
-    // return () => unsuscribe();
+    return () => unsuscribe();
   }, [messagesRef]);
 
   const handleAlert = () => {
@@ -43,7 +43,7 @@ export default function CommentsSection({ book }) {
       text: newcomment,
       createdAt: serverTimestamp(),
       user: auth.currentUser.displayName,
-      book,
+      bookTitle,
     });
     setNewcomment("");
   };
@@ -51,9 +51,9 @@ export default function CommentsSection({ book }) {
 
   return (
     <div className="chat-app">
-      {comments.map((comment) => {
+      {comments.map((comment,index) => {
         return (
-          <div className="comment">
+          <div className="comment" key={index}>
             <div className="avatar">
               <Avatar alt={comment.user} src="/static/images/avatar/1.jpg" />
             </div>

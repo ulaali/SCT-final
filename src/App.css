@@ -23,6 +23,10 @@
 
 }
 
+
+
+
+
 .nav{
   height: 100vh;
 }
@@ -42,13 +46,15 @@
     top: 60px;
     background-color: #F3F3F7;
     width: 0px;
-    height: calc(100vh - 60px);
+    height:100vh;
     transition: all 0.3s ease-in;
     overflow: hidden;
+    z-index: 99;
   }
 
   .nav-elements.active {
     width: 200px;
+    top: 0px;
   }
 
   .nav-elements ul {
