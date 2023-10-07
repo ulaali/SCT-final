@@ -65,6 +65,7 @@ export default function Preview() {
             {data.favchecker(prop.id) ? (
               <img
                 onClick={() => {
+                  console.log(data.favchecker(prop.id));
                   data.isAuth?
                   data.removefav(prop.id)
                   :alert('you need to sign up first')
@@ -76,6 +77,7 @@ export default function Preview() {
             ) : (
               <img
                 onClick={() => {
+                  console.log(data.favchecker(prop.id));
                   data.isAuth?
                   data.addfav(prop.book)
                   :alert('you need to sign up first')

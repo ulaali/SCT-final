@@ -62,17 +62,17 @@ export default function Searchpage() {
           <DialogContent>
             <DialogContentText>{/* Search books Here */}</DialogContentText>
             <div className="res-books">
-              {data.convertedSearch.map((book, index) => {
+              {data.search?.items?.map((book, index) => {
                 let prop = {
-                  image: book.image,
-                  author: book.author,
-                  title: book.title,
+                  image: book.volumeInfo?.imageLinks?.smallThumbnail,
+                  author:book.volumeInfo?.authors ? book.volumeInfo?.authors?.map((author) => {
+                         return author}):'No author Provided',
+                  title: book.volumeInfo?.title,
                   rate: "4.5/5",
-                  description: book.description,
-                  url: book.url,
+                  description: book.volumeInfo?.description ? book.volumeInfo?.description:'No description provided',
+                  url: book.volumeInfo?.previewLink,
                   book: book,
-                  id: index,
-                  publisher: book.publisher,
+                  id: book.id,
                 };
                 return (
                   <div key={book.id} className="res-book">
@@ -83,11 +83,12 @@ export default function Searchpage() {
                       onClick={data.handleClose2}
                     >
                       <Book
-                        image={book.image}
+                        image={book.volumeInfo?.imageLinks?.smallThumbnail}
                         // width={book.book_image_width}
                         // height={book.book_image_height}
-                        author={book.author}
-                        title={book.title}
+                        author={book.volumeInfo?.authors ? book.volumeInfo?.authors?.map((author) => {
+                          return author}):'No author Provided'}
+                        title={ book.volumeInfo?.title}
                         rate="4.5/5"
                         key={index}
                       />

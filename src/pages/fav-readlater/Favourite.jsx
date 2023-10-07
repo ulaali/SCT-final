@@ -11,30 +11,30 @@ export default function Favourite() {
     <div className="readlater">
       <h1>Your Favourite Books</h1>
 <div className="favpage">
-      {data.fav.map((book) => {
+      {data.fav.map((book,index) => {
         let prop = {
-          image: book.image,
+          image:book.volumeInfo?.imageLinks?.smallThumbnail || book.image,
           // width={book.book_image_width}
           // height={book.book_image_height}
-          author: book.author,
-          title: book.title,
+          author:book.volumeInfo?.authors ? book.volumeInfo?.authors?.map((author) => {
+            return author}):'No author Provided' || book.author,
+          title: book.volumeInfo?.title || book.title,
           rate: "4.5/5",
-          description: book.description,
-          url: book.url,
+          description: book.volumeInfo?.description ? book.volumeInfo?.description:'No description provided' || book.description,
+          url: book.volumeInfo?.previewLink ||book.url,
           book: book,
           id:book.id,
-          publisher:book.publisher
         };
         return (
-          <Link to="/preview" style={{ textDecoration: "none" ,marginTop:'50px',marginLeft:'50px'}} state={prop} >
+          <Link to="/preview" style={{ textDecoration: "none" ,marginTop:'50px',marginLeft:'50px'}} state={prop} key={index}>
             <Book
-              image={book.image}
+              image={book.volumeInfo?.imageLinks?.smallThumbnail || book.image}
               // width={book.book_image_width}
               // height={book.book_image_height}
-              author={book.author}
-              title={book.title}
+              author={book.volumeInfo?.authors ? book.volumeInfo?.authors?.map((author) => {
+                return author}):'No author Provided' || book.author}
+              title={book.volumeInfo?.title || book.title}
               rate="4.5/5"
-              publisher={book.publisher}
             >
 
             </Book>

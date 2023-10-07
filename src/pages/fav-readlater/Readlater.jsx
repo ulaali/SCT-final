@@ -12,26 +12,30 @@ export default function Readlater() {
             <h1>Your Read Later Books</h1>
  
    <div className="favpage">
-   {data.readlater.map((book) => {
+   {data.readlater.map((book,index) => {
      let prop = {
-       image: book.image,
-       author: book.author,
-       title: book.title,
-       rate: "4.5/5",
-       description: book.description,
-       url: book.url,
-       book: book,
-       id:book.id,
-       publisher:book.publisher
+      image:book.volumeInfo?.imageLinks?.smallThumbnail || book.image,
+      // width={book.book_image_width}
+      // height={book.book_image_height}
+      author:book.volumeInfo?.authors ? book.volumeInfo?.authors?.map((author) => {
+        return author}):'No author Provided' || book.author,
+      title: book.volumeInfo?.title || book.title,
+      rate: "4.5/5",
+      description: book.volumeInfo?.description ? book.volumeInfo?.description:'No description provided' || book.description,
+      url: book.volumeInfo?.previewLink ||book.url,
+      book: book,
+      id:book.id,
      };
      return (
-       <Link to="/preview" style={{ textDecoration: "none" ,marginTop:'50px',marginLeft:'50px'}} state={prop} >
+       <Link key={index} to="/preview" style={{ textDecoration: "none" ,marginTop:'50px',marginLeft:'50px'}} state={prop} >
          <Book
-           image={book.image}
-           author={book.author}
-           title={book.title}
+           image={book.volumeInfo?.imageLinks?.smallThumbnail || book.image}
+           // width={book.book_image_width}
+           // height={book.book_image_height}
+           author={book.volumeInfo?.authors ? book.volumeInfo?.authors?.map((author) => {
+             return author}):'No author Provided' || book.author}
+           title={book.volumeInfo?.title || book.title}
            rate="4.5/5"
-           publisher={book.publisher}
          >
 
          </Book>

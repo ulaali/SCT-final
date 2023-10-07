@@ -55,18 +55,18 @@ useEffect(()=>{
   })
 },[categoryy,text])
 
-
-const convertedSearch = _.map(search.items, (item) => ({
-  title: item.volumeInfo?.title,
-  author: item.volumeInfo?.authors ? item.volumeInfo?.authors?.map((author) => {
-    return author;
-  }) :'No author provided',
-  image: item.volumeInfo?.imageLinks?.smallThumbnail,
-  description:item.volumeInfo?.description ? item.volumeInfo?.description:'No description provided',
-  url:item.volumeInfo?.previewLink,
-  id:item.id,
-  book:item
-}));
+console.log(search);
+// const convertedSearch = _.map(search.items, (item) => ({
+//   title: item.volumeInfo?.title,
+//   author: item.volumeInfo?.authors ? item.volumeInfo?.authors?.map((author) => {
+//     return author;
+//   }) :'No author provided',
+//   image: item.volumeInfo?.imageLinks?.smallThumbnail,
+//   description:item.volumeInfo?.description ? item.volumeInfo?.description:'No description provided',
+//   url:item.volumeInfo?.previewLink,
+//   id:item.id,
+//   book:item
+// }));
 
 
 
@@ -99,8 +99,8 @@ const favchecker=(id)=>{
   return boolean
 }
 const Readlaterchecker=(id)=>{
-  const boolean=readlater.some((book)=>book.id === id)
-  return boolean
+  return readlater.some((book)=>book.id === id)
+  // return boolean
 }
   useEffect(() => {
     setInterval(() => {
@@ -265,7 +265,7 @@ const Readlaterchecker=(id)=>{
         removeRead,
         Readlaterchecker,
         readlater,
-        convertedSearch,
+        // convertedSearch,
         text,
         setText,
         setSearch,
