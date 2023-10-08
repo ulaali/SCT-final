@@ -21,7 +21,7 @@ export default function Searchpage() {
         maxWidth="md"
       >
         <DialogTitle style={{ textAlign: "center" }}>
-          <div className="search">
+          <div className="search search-page">
             <select onChange={(e)=> data.setCategory(e.target.value)} value={data.categoryy}>
               <option value={''}>All</option>
               <option value="fictional" >fictional</option>
@@ -84,11 +84,9 @@ export default function Searchpage() {
                     >
                       <Book
                         image={book.volumeInfo?.imageLinks?.smallThumbnail}
-                        // width={book.book_image_width}
-                        // height={book.book_image_height}
                         author={book.volumeInfo?.authors ? book.volumeInfo?.authors?.map((author) => {
                           return author}):'No author Provided'}
-                        title={ book.volumeInfo?.title}
+                        title={book.volumeInfo?.title}
                         rate="4.5/5"
                         key={index}
                       />

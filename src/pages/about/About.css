@@ -20,3 +20,35 @@
     right: 12%;
     left: 18%;
 }
+
+@media only screen and (max-width:380px) {
+    .about-text{
+        left: 0%;
+        color: rgb(21, 20, 20);
+    }
+   
+    
+}
+
+
+
+@media only screen and (max-width:420px) {
+    .about-text{
+        left: 4%;
+        color: rgb(21, 20, 20);
+    }
+   
+    
+}
+
+
+@media only screen and (max-width:492px) {
+    .about-text{
+        left: 2%;
+        color: rgb(21, 20, 20);
+    }
+   .rights{
+    left: 13%;
+   }
+    
+}

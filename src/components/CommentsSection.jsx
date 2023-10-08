@@ -55,7 +55,7 @@ export default function CommentsSection({ bookTitle }) {
         return (
           <div className="comment" key={index}>
             <div className="avatar">
-              <Avatar alt={comment.user} src="/static/images/avatar/1.jpg" />
+              <Avatar alt={comment.user} src="/static/images/avatar/1.jpg"/>
             </div>
             <div>
               <h4>{comment.user}</h4>

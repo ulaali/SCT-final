@@ -120,103 +120,66 @@ select option {
 }
 
 
-
-@media  only screen and (max-width:790px) {
-    .menu-icon{
-        left: -39%;
-    }
+@media only screen and (max-width:376px){
+  .menu-icon{
+    left: -90%;
+    top: 0.5%;
+    width: 5%;
+    height: 4%;
   }
-
-
-  @media  only screen and (max-width:750px) {
-    .menu-icon{
-        left: -43%;
-    }
-  }
-
-  @media  only screen and (max-width:700px) {
-    .menu-icon{
-        left: -47%;
-    }
-  }
-
-  @media  only screen and (max-width:620px) {
-    .menu-icon{
-        left: -50%;
-    }
-  }
-
-  @media  only screen and (max-width:740px) {
-   .Topbar{
-    width: 108vh;
-   }
-  }
-
-  
-  @media  only screen and (max-width:350px) {
-   .menu-icon{
-    width: 18%;
-    height: 10%;
-    left: -95%;
-   }
-  }
-
-  @media  only screen and (max-width:700px) {
-   
-    .Topbar{
-      width: 167vh;    
-    }
-    }
-
-
-
-
-
-@media  only screen and (max-width:760px) {
- 
-  .Topbar{
-    width: 148vh;    
-  }
-  }
-
-  @media  only screen and (max-width:450px) {
-      
-      .menu-icon{
-        left: -70%;
-        width: 8%;
-      }
-
-  }
-
-  
-  @media  only screen and (max-width:470px) {
-      
-    .menu-icon{
-      left: -65%;
-      width: 7%;
-      height: 5%;
-    }
-
+  .search{
+    width: 60%;
 }
-  
-  @media  only screen and (max-width:350px) {
-      
-    .menu-icon{
-      left: -95%;
-      width: 12%;
-      height: 8%;
-    }
+}
 
+@media only screen and (max-width:420px){
+    .menu-icon{
+        left: -82%;
+        height: 3%;
+        width: 5%;
+        top: 0.7%;
+    }
+    .search{
+        width: 60%;
+    }
 }
 
 
-@media  only screen and (max-width:290px) {
-      
+@media only screen and (max-width:492px){
     .menu-icon{
-      left: -107%;
-      width: 10%;
-      height: 8%;
+        left: -87%;
+        height: 3%;
+        width: 5%;
+        top: 0.7%;
     }
-    
+    .search{
+        width: 60%;
+    }
+}
 
+
+@media only screen and (max-width:365px){
+    .menu-icon{
+        left: -99%;
+        height: 3%;
+        width: 5%;
+        top: 0.7%;
+    }
+    .search{
+        width: 60%;
+    }
+}
+
+
+
+@media only screen and (max-width:416px){
+    .menu-icon{
+        left: -77%;
+        height: 3%;
+        width: 5%;
+        top: 1%;
+    }
+    .search{
+        width: 60%;
+    }
 }

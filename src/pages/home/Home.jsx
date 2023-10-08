@@ -26,9 +26,20 @@ export default function Home() {
             <br /> best and most famous books and articles
           </p>
           <div className="btns">
-            <button onClick={data.handleClickOpen1}>
+            {/* <button onClick={data.handleClickOpen1}>
               {data.isAuth ? "Sign Out" : "Sign Up"}
-            </button>
+            </button> */}
+            {data.isAuth ? (
+      <button className="signin-hero" onClick={data.signUserOut}>
+        Sign Out
+      </button>
+    ) : (
+      <>
+        <button className="signin-hero" onClick={data.handleClickOpen1}>
+          Sign Up
+        </button>
+      </>
+    )}
             <button className="search-btn" onClick={data.handleFocus}>
               Search Now!
             </button>
@@ -197,7 +208,7 @@ export default function Home() {
                     >
                       <Book
                         image={article.image}
-                        height={445}
+                        height={400}
                         author={article.author}
                         title={article.title}
                         rate="4.5/5"

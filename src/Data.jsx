@@ -55,22 +55,6 @@ useEffect(()=>{
   })
 },[categoryy,text])
 
-console.log(search);
-// const convertedSearch = _.map(search.items, (item) => ({
-//   title: item.volumeInfo?.title,
-//   author: item.volumeInfo?.authors ? item.volumeInfo?.authors?.map((author) => {
-//     return author;
-//   }) :'No author provided',
-//   image: item.volumeInfo?.imageLinks?.smallThumbnail,
-//   description:item.volumeInfo?.description ? item.volumeInfo?.description:'No description provided',
-//   url:item.volumeInfo?.previewLink,
-//   id:item.id,
-//   book:item
-// }));
-
-
-
-
 
 const addfav=(book)=>{
   const oldfav=[...fav];
@@ -265,7 +249,6 @@ const Readlaterchecker=(id)=>{
         removeRead,
         Readlaterchecker,
         readlater,
-        // convertedSearch,
         text,
         setText,
         setSearch,

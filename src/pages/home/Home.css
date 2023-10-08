@@ -81,71 +81,53 @@ h2 {
 
 }
 .Card{
-  width: 300px;
+  width: 250px;
 }
 
-  @media  only screen and (max-width:1200px) {
-    .Card{
-      width: 250px;
-    }
-  }
-  
-
-
-  @media  only screen and (max-width:550px) {
-    .Card{
-      width: 200px;
-    }
-  }
-
-
-  @media  only screen and (max-width:600px) {
-    .hero{
-     margin-top: 20px;
-     }
-  }
-
-
-  @media  only screen and (max-width:760px) {
-
-    .intro{
-     margin-top: 20px;
-     }
-     .qouts{
-      margin-top: 20px;
-      width: 100%;
-     }
-  }
- 
-
+.signin-hero{
+  border: none;
+    background-color: #F4683C;
+    padding: 10px 30px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+}
 
   @media  only screen and (max-width:740px) {
     .qouts{
       display: none;
     }
-  .home-com{
-    width: 108vh;    
   }
+
+  @media  only screen and (max-width:380px) {
+   .home .greeting{
+      margin-top: 50px;
+    }
+    
+  }
+
+  @media  only screen and (max-width:420px){
+    .home .greeting{
+      margin-top: 50px;
+    }
+    .intro{
+      margin-top: 20px;
+    }
   }
 
 
-  @media  only screen and (max-width:700px) {
-   
-  .home-com{
-    width: 167vh;    
+  @media  only screen and (max-width:365px){
+    .hero{
+      margin-left: 20px;
+    }
+    .home .greeting{
+      margin-top: 80px;
+    }
+    .intro{
+      margin-top: 20px;
+    }
   }
-  }
-
-
-  @media  only screen and (max-width:760px) {
  
-    .home-com{
-      width: 148vh;    
-    }
-    }
-
-
-   
   
 
 
