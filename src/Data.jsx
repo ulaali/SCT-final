@@ -29,6 +29,9 @@ const [text, setText] = useState('');
 const [categoryy, setCategory] = useState('');
 const [showNavbar, setShowNavbar] = useState(false)
 
+
+
+
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar)
   }
@@ -257,7 +260,8 @@ const Readlaterchecker=(id)=>{
         handleShowNavbar,
         showNavbar,
         setShowNavbar,
-        handleHideNavbar
+        handleHideNavbar,
+
         
       }}
     >

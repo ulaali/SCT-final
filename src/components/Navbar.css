@@ -15,6 +15,9 @@ nav{
 .menu-icon {
   display: none;
 }
+.active{
+  font-weight: bolder;
+}
 ul{
   list-style: none;
   display: flex;

@@ -5,6 +5,17 @@
     column-gap: 10px;
 }
 
+
+
+.search-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0px;
+}
+
+
 .lds-default2 {
     display: flex;
     align-items: center;
@@ -94,29 +105,12 @@
   }
 
 
-@media only screen and (max-width:420px) {
-  .res-books{
-    grid-template-columns: auto;
-  }
-  .lds-default2{
-    left: 38%;
-  }
-  
-}
-
-
-@media only screen and (max-width:416px) {
-  .res-books{
-    grid-template-columns: auto;
-  }
-  .lds-default2{
-    left: 38%;
-  }
-  .search-page{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: 0px;
-  }
-  
-}
+  @media  only screen and (max-width:480px) {
+    .res-books{
+      grid-template-columns: auto;
+    }
+    .search-page{
+      /* margin-left: 30px; */
+    }
+     
+ }

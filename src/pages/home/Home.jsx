@@ -14,6 +14,8 @@ export default function Home() {
     <div style={{ backgroundColor: "#F3F3F7" }} className="home-com">
       <div className="hero">
         <div className="intro">
+          
+          <div>
           <h1>
             Explore Hundreds Of <span style={{ color: "#F4683C" }}>Free</span>
             <br /> Books Online
@@ -43,6 +45,11 @@ export default function Home() {
             <button className="search-btn" onClick={data.handleFocus}>
               Search Now!
             </button>
+          </div>
+          
+          </div>
+          <div>
+          <img src={logo} alt="logo"></img>
           </div>
         </div>
         <div>
