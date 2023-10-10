@@ -57,14 +57,23 @@ ul li{
     
 }
 
-@media  only screen and (max-width:391px) {
+
+
+@media  only screen and (min-width:380px) and (max-width:420px) {
+    .book-image{
+        width: 25%;
+        height: 180px;
+    }
+}
+
+@media  only screen and (max-width:376px) {
     .preview{
         height: fit-content;
         width: 100%;
     }
     .book-image{
-        width: 23%;
-        height: 200px;
+        width: 25%;
+        height: 180px;
     }
     .preview p, .preview ul li{
       font-size: 0.8rem;
@@ -95,8 +104,8 @@ ul li{
         height: fit-content;
     }
     .book-image{
-        width: 23%;
-        height: 200px;
+        width: 25%;
+        height: 180px;
     }
     .preview p, .preview ul li{
       font-size: 0.8rem;
