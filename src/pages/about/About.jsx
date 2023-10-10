@@ -31,7 +31,7 @@ export default function About() {
           Free books, great discussions Where you
           <br /> can space out without any regrets
         </p>
-      <Link to='/'><Button variant="contained" style={{ color: "#F4683C" ,backgroundColor:'white'}}>Home</Button></Link> 
+      <Link to='/' style={{textDecoration:'none'}}><Button variant="contained" style={{ color: "#F4683C" ,backgroundColor:'white'}}>Home</Button></Link> 
       <div className="rights">
         <img src={copy} style={{width:'7%',height:'7%',padding:'10px'}}/>
         <h3> All rights reserved</h3>

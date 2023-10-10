@@ -104,13 +104,46 @@
     }
   }
 
-
+/* 
   @media  only screen and (max-width:480px) {
     .res-books{
       grid-template-columns: auto;
     }
+    .lds-default2{
+      left: 40%;
+    }
     .search-page{
-      /* margin-left: 30px; */
+      margin-left: 50px;
     }
      
  }
+
+ @media  only screen and (max-width:376px)  {
+  .res-books{
+    grid-template-columns: auto;
+  }
+  .lds-default2{
+    left: 40%;
+  }
+}
+
+
+
+@media  only screen and (min-width:380px) and (max-width:420px)  {
+  .res-books{
+    grid-template-columns: auto;
+  }
+  .lds-default2{
+    left: 40%;
+  }
+}
+
+
+@media  only screen and (max-width:415px) {
+  .res-books{
+    grid-template-columns: auto;
+  }
+  .lds-default2{
+    left: 40%;
+  }
+} */

@@ -23,7 +23,7 @@ ul{
   display: flex;
   flex-direction: column;
   align-items: left;
-  justify-content: center;
+  justify-content: flex-start;
 }
 ul li{
   margin-top: 20px;
@@ -55,5 +55,61 @@ ul li{
   list-style-type: none;
 }
 
+.logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16%;
+  height: 3%;
+  margin-left: 10px;
+}
 
 
+
+
+
+@media  only screen and (max-width:376px){
+  .logo{
+    width: 49%;
+    height: 15%;
+    margin-left: 50px;
+  }
+  ul{
+    font-weight: 300;
+  }
+  .active{
+    font-weight: bold;
+  }
+}
+
+
+
+
+@media  only screen and (min-width:380px) and (max-width:420px){
+  .logo{
+    width: 49%;
+    height: 15%;
+    margin-left: 50px;
+}
+ul{
+  font-weight: 300;
+}
+.active{
+  font-weight: bold;
+}
+}
+
+
+@media  only screen and (max-width:415px){
+  .logo{
+    width: 49%;
+    height: 15%;
+    margin-left: 50px;
+}
+ul{
+  font-weight: 300;
+}
+.active{
+  font-weight: bold;
+}
+}

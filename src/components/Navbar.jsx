@@ -3,16 +3,11 @@ import logo from "../assets/logo.png";
 import "./Navbar.css";
 import "./Topbar.css";
 import "../App.css";
-import menu from '../assets/menu.png'
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import Context from "../Data";
 export default function Navbar() {
   const data = useContext(Context);
-  const [activeHome, setActiveHome] = useState(false)
-  const [activeFav, setActiveFav] = useState(false)
-  const [activeRead, setActiveRead] = useState(false)
-  const [activeAbout, setActiveAbout] = useState(false)
   const [active, setActive] = useState({
    home:true,
    fav:false,
@@ -28,7 +23,8 @@ export default function Navbar() {
           <div
             className={`nav-elements ${data.showNavbar? 'active':''}`}
           >
-            <img src={logo} style={{ width: "150px", height: "150px" }} />
+            <img src={logo} alt="logo" className="logo"/>
+        
             <ul>
               <li onClick={data.handleHideNavbar}>
                 <Link to="/" className={`Link ${active.home? 'active':''}`} onClick={()=>{

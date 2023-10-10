@@ -49,7 +49,6 @@
     padding: 20px;
     background-color: white;
     /* border-radius: 10px; */
-
   }
   
   .new-comment-input {
@@ -82,20 +81,27 @@
   @media screen and (max-width:377px) {
     .new-comment-form, .comment{
       margin-left: 0px;
-      margin-right: 100px;
+      /* margin-right: 100px; */
+  
     }
     .comment{
       font-size: 0.9rem;
-    }
-    .new-comment-form{
       width: 100%;
     }
+    .new-comment-form{
+      width: 90% !important;
+      padding: 15px;
+
+    }
     .new-comment-input{
-      width: 70%;
+      width: 50%;
     }
     .comment-button{
       font-size: 0.7rem !important;
-      padding: 6px !important;
+      padding: 5px 5px !important;
+    }
+    .new-comment-input::placeholder{
+      font-size: 0.8rem;
     }
   }
   

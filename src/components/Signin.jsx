@@ -11,15 +11,18 @@ import { useContext } from "react";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
 import google from "../assets/google.png";
-
+import logo from "../assets/logo.png";
+import './Signin.css'
 const validationSchema = Yup.object().shape({
-  Name: Yup.string().required("this feild is required").min(2,'too short').max(20,'too long'),
+  Name: Yup.string()
+    .required("this feild is required")
+    .min(2, "too short")
+    .max(20, "too long"),
   Password: Yup.string()
     .required("this feild is required")
-    .min(6,'too short')
+    .min(6, "too short")
     .max(20, "too long"),
 });
-
 
 export default function FormDialog() {
   const data = useContext(Context);
@@ -41,16 +44,20 @@ export default function FormDialog() {
           }}
           validationSchema={validationSchema}
         >
-          {({ errors, values, handleChange, touched,onSubmit }) => (
-            <Form onSubmit={()=>onSubmit}>
+          {({ errors, values, handleChange, touched, onSubmit }) => (
+            <Form onSubmit={() => onSubmit}>
+              <div className="logo">
+                <img src={logo} alt="logo"></img>
+              </div>
               <DialogTitle style={{ textAlign: "center" }}>
                 Registration
-              </DialogTitle><br/>
+              </DialogTitle>
+              <br />
               <DialogContent>
-                <DialogContentText style={{ textAlign: "center" }}>
+                {/* <DialogContentText style={{ textAlign: "center" }}>
                   please enter your Name and <br />
                   password here to register
-                </DialogContentText><br/>
+                </DialogContentText><br/> */}
                 <TextField
                   margin="dense"
                   id="name"
@@ -76,21 +83,42 @@ export default function FormDialog() {
                   helperText={errors.Password}
                 />
               </DialogContent>
-              <DialogActions style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',rowGap:'20px'}}>
-                  <Button
-                    onClick={data.handleClose1}
-                    type="submit"
-                    variant="contained"
-                    style={{ backgroundColor: "#F4683C",width:'30%' }}
-                  >
-                    Sign Up
-                  </Button>
-                  <div style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',rowGap:'20px'}}>
+              <DialogActions
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  rowGap: "20px",
+                }}
+              >
+                <Button
+                  onClick={data.handleClose1}
+                  type="submit"
+                  variant="contained"
+                  style={{ backgroundColor: "#F4683C", width: "30%" }}
+                >
+                  Sign Up
+                </Button>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    rowGap: "20px",
+                  }}
+                >
                   <DialogContentText>Not A User ?</DialogContentText>
-                  <Button variant="standard" onClick={data.signInWithGoogle} ><img src={google} style={{width:'4%',height:'4%',padding:'10px'}}></img> Sign In With Google</Button>
-                  
-                  </div>
-                 
+                  <Button variant="standard" onClick={data.signInWithGoogle}>
+                    <img
+                      src={google}
+                      style={{ width: "4%", height: "4%", padding: "10px" }}
+                      alt="google"
+                    ></img>{" "}
+                    Sign In With Google
+                  </Button>
+                </div>
               </DialogActions>
             </Form>
           )}
