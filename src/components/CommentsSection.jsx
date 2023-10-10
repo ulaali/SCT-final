@@ -8,8 +8,7 @@ import {
   where,
   serverTimestamp,
   onSnapshot,
-  query,
-  orderBy,
+  query
 } from "firebase/firestore";
 import "./Comments.css";
 import Context from "../Data";
