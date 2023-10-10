@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useContext,useState } from "react";
+import { useContext} from "react";
 import "./Topbar.css";
 import Signin from "./Signin";
 import Context from "../Data";
@@ -8,7 +8,6 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import { deepOrange } from "@mui/material/colors";
 import Searchpage from "./Searchpage";
 import "./Navbar.css";
-// import menu from '../assets/menu.png'
 
 export default function Topbar() {
   const data = useContext(Context);

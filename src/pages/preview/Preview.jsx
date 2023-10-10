@@ -3,10 +3,7 @@ import { useLocation } from "react-router-dom";
 import Rating from "@mui/material/Rating";
 import Context from "../../Data";
 import { useContext } from "react";
-// import accept from "../../assets/accept.png";
 import { Button } from "@mui/material";
-// import heart from "../../assets/heart.png";
-// import heartless from "../../assets/heartless.png";
 import "./preview.css";
 import CommentsSection from "../../components/CommentsSection";
 export default function Preview() {

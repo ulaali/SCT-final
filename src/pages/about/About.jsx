@@ -32,7 +32,7 @@ export default function About() {
         </p>
       <Link to='/' style={{textDecoration:'none'}}><Button variant="contained" style={{ color: "#F4683C" ,backgroundColor:'white'}}>Home</Button></Link> 
       <div className="rights">
-        <img src='/assets/copyright.png' style={{width:'7%',height:'7%',padding:'10px'}}/>
+        <img src='/assets/copyright.png' style={{width:'7%',height:'7%',padding:'10px'}} alt="copyrights"/>
         <h3> All rights reserved</h3>
         </div> 
       </div>
