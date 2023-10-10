@@ -12,7 +12,7 @@ import * as Yup from "yup";
 import { Formik, Form } from "formik";
 import google from "../assets/google.png";
 import logo from "../assets/logo.png";
-import './Signin.css'
+import "./Signin.css";
 const validationSchema = Yup.object().shape({
   Name: Yup.string()
     .required("this feild is required")
@@ -110,7 +110,10 @@ export default function FormDialog() {
                   }}
                 >
                   <DialogContentText>Not A User ?</DialogContentText>
-                  <Button variant="standard" onClick={data.signInWithGoogle}>
+                  <Button
+                    variant="standard"
+                    onClick={ data.signInWithGoogle}
+                  >
                     <img
                       src={google}
                       style={{ width: "4%", height: "4%", padding: "10px" }}
