@@ -3,10 +3,10 @@ import { useLocation } from "react-router-dom";
 import Rating from "@mui/material/Rating";
 import Context from "../../Data";
 import { useContext } from "react";
-import accept from "../../assets/accept.png";
+// import accept from "../../assets/accept.png";
 import { Button } from "@mui/material";
-import heart from "../../assets/heart.png";
-import heartless from "../../assets/heartless.png";
+// import heart from "../../assets/heart.png";
+// import heartless from "../../assets/heartless.png";
 import "./preview.css";
 import CommentsSection from "../../components/CommentsSection";
 export default function Preview() {
@@ -36,7 +36,7 @@ export default function Preview() {
           <p style={{ fontWeight: "bold" }}>Availablity:</p>
           <p>
             <img
-              src={accept}
+              src='/assets/accept.png'
               style={{ width: "2%", height: "2%" }}
               alt="accept"
               className="accept"
@@ -45,7 +45,7 @@ export default function Preview() {
           </p>
           <p>
             <img
-              src={accept}
+              src='/assets/accept.png'
               style={{ width: "2%", height: "2%" }}
               alt="accept"
               className="accept"
@@ -55,7 +55,7 @@ export default function Preview() {
           </p>
           <p>
             <img
-              src={accept}
+              src='/assets/accept.png'
               style={{ width: "2%", height: "2%"}}
               alt="accept"
               className="accept"
@@ -75,7 +75,7 @@ export default function Preview() {
                   data.removefav(prop.id)
                   :alert('you need to sign up first')
                 }}
-                src={heart}
+                src='/assets/heart.png'
                 style={{ width: "3%", height: "3%",cursor:'pointer' }}
                 alt="heart"
                 className="heart"
@@ -88,7 +88,7 @@ export default function Preview() {
                   data.addfav(prop.book)
                   :alert('you need to sign up first')
                 }}
-                src={heartless}
+                src='/assets/heartless.png'
                 style={{ width: "3%", height: "3%",cursor:'pointer' }}
                 alt="heartless"
                 className="heart"

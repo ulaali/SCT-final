@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import logo from "../assets/logo.png";
+// import logo from "../../";
+// import logo from '../../public/assets/logo'
 import "./Navbar.css";
 import "./Topbar.css";
 import "../App.css";
@@ -23,7 +24,7 @@ export default function Navbar() {
           <div
             className={`nav-elements ${data.showNavbar? 'active':''}`}
           >
-            <img src={logo} alt="logo" className="logo"/>
+            <img src='/assets/logo.png' alt="logo" className="logo"/>
         
             <ul>
               <li onClick={data.handleHideNavbar}>

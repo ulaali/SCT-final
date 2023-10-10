@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../../assets/logo.png";
 import Book from "../../components/Book";
 import Qouts from "../../components/Quots";
 import Context from "../../Data";
@@ -49,7 +48,7 @@ export default function Home() {
           
           </div>
           <div>
-          <img src={logo} alt="logo"></img>
+          <img src='/assets/logo.png' alt="logo"></img>
           </div>
         </div>
         <div>

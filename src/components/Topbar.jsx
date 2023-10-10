@@ -8,7 +8,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import { deepOrange } from "@mui/material/colors";
 import Searchpage from "./Searchpage";
 import "./Navbar.css";
-import menu from '../assets/menu.png'
+// import menu from '../assets/menu.png'
 
 export default function Topbar() {
   const data = useContext(Context);
@@ -17,7 +17,7 @@ export default function Topbar() {
     <>
 
     <div className="Topbar">
-    <img src={menu} alt="men" className="menu-icon"  onClick={data.handleShowNavbar}></img>
+    <img src='/assets/menu.png' alt="men" className="menu-icon"  onClick={data.handleShowNavbar}></img>
 
     <div className="search">
 

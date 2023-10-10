@@ -10,8 +10,6 @@ import Context from "../Data";
 import { useContext } from "react";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
-import google from "../assets/google.png";
-import logo from "../assets/logo.png";
 import "./Signin.css";
 const validationSchema = Yup.object().shape({
   Name: Yup.string()
@@ -47,7 +45,7 @@ export default function FormDialog() {
           {({ errors, values, handleChange, touched, onSubmit }) => (
             <Form onSubmit={() => onSubmit}>
               <div className="logo">
-                <img src={logo} alt="logo"></img>
+                <img src='/assets/logo.png' alt="logo"></img>
               </div>
               <DialogTitle style={{ textAlign: "center" }}>
                 Registration
@@ -115,7 +113,7 @@ export default function FormDialog() {
                     onClick={ data.signInWithGoogle}
                   >
                     <img
-                      src={google}
+                      src='/assets/google.png'
                       style={{ width: "4%", height: "4%", padding: "10px" }}
                       alt="google"
                     ></img>{" "}

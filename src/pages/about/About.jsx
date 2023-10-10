@@ -2,7 +2,6 @@ import React from "react";
 import "./About.css";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import copy from '../../assets/copyright.png'
 export default function About() {
   return (
     <div className="about">
@@ -33,7 +32,7 @@ export default function About() {
         </p>
       <Link to='/' style={{textDecoration:'none'}}><Button variant="contained" style={{ color: "#F4683C" ,backgroundColor:'white'}}>Home</Button></Link> 
       <div className="rights">
-        <img src={copy} style={{width:'7%',height:'7%',padding:'10px'}}/>
+        <img src='/assets/copyright.png' style={{width:'7%',height:'7%',padding:'10px'}}/>
         <h3> All rights reserved</h3>
         </div> 
       </div>
