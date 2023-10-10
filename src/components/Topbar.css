@@ -108,15 +108,7 @@ select option {
         display: none;
     }
 
-    /* .menu-icon {
-        display: block;
-        position: absolute;
-        float: left;
-        left: -37%;
-        top: 0%;
-        width: 4%;
-        height: 5%;
-    } */
+   
 }
 
 @media  only screen and (max-width:376px)  {

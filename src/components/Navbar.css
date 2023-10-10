@@ -9,7 +9,6 @@ nav{
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  position: fixed;
   z-index: 99;
 }
 .menu-icon {
@@ -24,6 +23,7 @@ ul{
   flex-direction: column;
   align-items: left;
   justify-content: flex-start;
+  width: fit-content;
 }
 ul li{
   margin-top: 20px;
@@ -59,10 +59,14 @@ ul li{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 16%;
-  height: 3%;
-  margin-left: 10px;
+  width: 63%;
+  height: 7%;
+  margin-left: 25px;
 }
+
+
+
+
 
 
 
@@ -112,4 +116,4 @@ ul{
 .active{
   font-weight: bold;
 }
-}
+} 

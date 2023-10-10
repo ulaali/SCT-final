@@ -4,6 +4,40 @@
     align-items: center;
 }
 .logo img{
-    width: 30%;
+    width: 40%;
     height: 35%;
+    margin-left: 155px;
+
 }
+
+
+
+@media  only screen and (max-width:376px)  {
+    .logo img{
+        width: 45%;
+        height: 35%;
+        margin-left: 155px;
+    
+    }
+}
+
+
+@media  only screen and (min-width:380px) and (max-width:420px)  {
+    .logo img{
+        width: 45%;
+        height: 35%;
+        margin-left: 155px;
+    
+    }
+}
+
+
+@media  only screen and (max-width:415px) {
+    
+    .logo img{
+        width: 45%;
+        height: 40%;
+        margin-left: 80px;
+    
+    }
+  }
