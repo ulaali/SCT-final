@@ -10,6 +10,7 @@ import Context from "../Data";
 import { useContext } from "react";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
+
 import "./Signin.css";
 const validationSchema = Yup.object().shape({
   Name: Yup.string()
@@ -52,10 +53,7 @@ export default function FormDialog() {
               </DialogTitle>
               <br />
               <DialogContent>
-                {/* <DialogContentText style={{ textAlign: "center" }}>
-                  please enter your Name and <br />
-                  password here to register
-                </DialogContentText><br/> */}
+                <label htmlFor="name" style={{fontWeight:'bold'}}>Name:</label>
                 <TextField
                   margin="dense"
                   id="name"
@@ -68,6 +66,7 @@ export default function FormDialog() {
                   error={errors.Name && touched.Name}
                   helperText={errors.Name}
                 />
+                <label htmlFor="Password" style={{fontWeight:'bold'}}>Password:</label>
                 <TextField
                   margin="dense"
                   id="Password"
@@ -110,7 +109,7 @@ export default function FormDialog() {
                   <DialogContentText>Not A User ?</DialogContentText>
                   <Button
                     variant="standard"
-                    onClick={ data.signInWithGoogle}
+                    onClick={data.signInWithGoogle}
                   >
                     <img
                       src='/assets/google.png'

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useContext} from "react";
+import { useContext,useState,useEffect} from "react";
 import "./Topbar.css";
 import Signin from "./Signin";
 import Context from "../Data";
@@ -11,7 +11,17 @@ import "./Navbar.css";
 
 export default function Topbar() {
   const data = useContext(Context);
-  
+  const [time, settime] = useState(new Date());
+  const [date, setdate] = useState(new Date());
+
+  useEffect(() => {
+    setInterval(() => {
+      settime(new Date());
+    }, 1000);
+    setInterval(() => {
+      setdate(new Date());
+    }, 1000);
+  }, []);
   return (
     <>
 
@@ -38,9 +48,9 @@ export default function Topbar() {
 
     <p className="Time">
       <AccessTimeIcon sx={{ color: deepOrange[600] }} fontSize="small" />{" "}
-      {data.time.toLocaleTimeString()}{" "}
+      {time.toLocaleTimeString()}{" "}
       <CalendarMonthIcon sx={{ color: deepOrange[600] }} fontSize="small" />{" "}
-      {data.date.toLocaleDateString()}
+      {date.toLocaleDateString()}
     </p>
     {data.isAuth ? (
       <button className="signin" onClick={data.signUserOut}>

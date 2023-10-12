@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Book from "../../components/Book";
 import Qouts from "../../components/Quots";
 import Context from "../../Data";
@@ -9,6 +9,8 @@ import "./Home.css";
 import { Link } from "react-router-dom";
 export default function Home() {
   const data = useContext(Context);
+  const time=new Date();
+
   return (
     <div style={{ backgroundColor: "#F3F3F7" }} className="home-com">
       <div className="hero">
@@ -27,9 +29,6 @@ export default function Home() {
             <br /> best and most famous books and articles
           </p>
           <div className="btns">
-            {/* <button onClick={data.handleClickOpen1}>
-              {data.isAuth ? "Sign Out" : "Sign Up"}
-            </button> */}
             {data.isAuth ? (
       <button className="signin-hero" onClick={data.signUserOut}>
         Sign Out
@@ -54,12 +53,11 @@ export default function Home() {
         <div>
           <Qouts />
         </div>
-        {/* <img src={logo} style={{ width: "200px", height: "200px" }} alt="logo"/> */}
       </div>
 
       <div className="home">
         <div className="greeting">
-          {data.time.toLocaleTimeString().includes("PM") ? (
+          {time.toLocaleTimeString().includes("PM") ? (
             <h1>Good Evening</h1>
           ) : (
             <h1>Good Morning</h1>

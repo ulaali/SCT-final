@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Avatar from "@mui/material/Avatar";
-
+import '../pages/home/Home.css'
 import { db, auth } from "../firbaseConfig";
 import {
   collection,
@@ -19,9 +19,9 @@ export default function CommentsSection({ bookTitle }) {
   const [comments, setComments] = useState([]);
   const messagesRef = collection(db, "comments");
   const data = useContext(Context);
+  const queryComments = query(messagesRef,where('bookTitle',"==", bookTitle));
 
   useEffect(() => {
-    const queryComments = query(messagesRef,where('bookTitle',"==", bookTitle));
    const unsuscribe= onSnapshot(queryComments, (data) => {
       let comments = data.docs.map((doc) => {
         return { ...doc.data(), id: doc.id };
@@ -50,7 +50,8 @@ export default function CommentsSection({ bookTitle }) {
 
   return (
     <div className="chat-app">
-      {comments.map((comment,index) => {
+      {
+      comments.length >0?comments.map((comment,index) => {
         return (
           <div className="comment" key={index}>
             <div className="avatar">
@@ -62,7 +63,34 @@ export default function CommentsSection({ bookTitle }) {
             </div>
           </div>
         );
-      })}
+      }): comments.length !==0?   <div class="lds-default">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>:''
+      
+      
+      }
+     
+      
+      
+       
+
+
+
+
+
+
+
 
       <form
         onSubmit={handleSubmit}

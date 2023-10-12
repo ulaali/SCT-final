@@ -62,7 +62,8 @@ export default function Searchpage() {
           <DialogContent>
             <DialogContentText>{/* Search books Here */}</DialogContentText>
             <div className="res-books">
-              {data.search?.items?.map((book, index) => {
+            
+            {data.search?.items?.map((book, index) => {
                 let prop = {
                   image: book.volumeInfo?.imageLinks?.smallThumbnail,
                   author:book.volumeInfo?.authors ? book.volumeInfo?.authors?.map((author) => {
@@ -74,6 +75,7 @@ export default function Searchpage() {
                   book: book,
                   id: book.id,
                 };
+          
                 return (
                   <div key={book.id} className="res-book">
                     <Link
@@ -94,6 +96,10 @@ export default function Searchpage() {
                   </div>
                 );
               })}
+            
+          
+          
+              
             </div>
           </DialogContent>
         )}
