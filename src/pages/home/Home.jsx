@@ -58,7 +58,7 @@ export default function Home() {
       <div className="home">
         <div className="greeting">
           {time.toLocaleTimeString().includes("PM") ? (
-            <h1>Good Evening</h1>
+            <h1>Good Afternoon</h1>
           ) : (
             <h1>Good Morning</h1>
           )}
