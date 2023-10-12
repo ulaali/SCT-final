@@ -34,6 +34,7 @@ export default function CommentsSection({ bookTitle }) {
 
   const handleAlert = () => {
     alert("you need to sign up first");
+    
   };
 
   const handleSubmit = async (e) => {
@@ -45,6 +46,7 @@ export default function CommentsSection({ bookTitle }) {
       bookTitle,
     });
     setNewcomment("");
+
   };
 
 
@@ -82,16 +84,6 @@ export default function CommentsSection({ bookTitle }) {
       }
      
       
-      
-       
-
-
-
-
-
-
-
-
       <form
         onSubmit={handleSubmit}
         className="new-comment-form"
@@ -109,10 +101,11 @@ export default function CommentsSection({ bookTitle }) {
           value={newcomment}
           onClick={data.isAuth ? ()=>'' : handleAlert}
         />
-        <button className="comment-button" type="submit">
+        <button className="comment-button" type={data.isAuth? 'submit':'button'} onClick={data.isAuth ? ()=>'' : handleAlert}>
           Comment
         </button>
       </form>
     </div>
   );
 }
+// type={data.isAuth ? 'submit' : ('button')}

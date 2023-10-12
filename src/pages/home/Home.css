@@ -84,7 +84,7 @@ h2 {
 
 }
 .Card{
-  width: 300px;
+  width: 250px;
 }
 
 .signin-hero{
@@ -100,18 +100,35 @@ h2 {
     .qouts{
       display: none;
     }
-    
-  }
-
-
-  @media  only screen and (max-width:740px) {
-    .qouts{
-      display: none;
+    .greeting{
+      margin-top: 20px;
     }
-    
   }
 
 
+
+  
+@media  only screen and (max-width:376px)  {
+  .greeting{
+    margin-top: 20px;
+  }
+}
+
+
+
+@media  only screen and (min-width:380px) and (max-width:420px)  {
+  .greeting{
+   margin-top: 20px;
+  }
+}
+
+
+@media  only screen and (max-width:415px) {
+  
+  .greeting{
+    margin-top: 20px;
+  }  
+}
   
 
 
