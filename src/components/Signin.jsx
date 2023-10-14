@@ -1,6 +1,5 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
@@ -10,17 +9,16 @@ import Context from "../Data";
 import { useContext } from "react";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
-
+import Input from '@mui/material/Input';
 import "./Signin.css";
+import { TextField } from "@mui/material";
+
+
+const ariaLabel = { 'aria-label': 'description' };
+
 const validationSchema = Yup.object().shape({
-  Name: Yup.string()
-    .required("this feild is required")
-    .min(2, "too short")
-    .max(20, "too long"),
-  Password: Yup.string()
-    .required("this feild is required")
-    .min(6, "too short")
-    .max(20, "too long"),
+  Name: Yup.string().required("this feild is required").min(2, "too short").max(20, "too long"),
+  Password: Yup.string().required("this feild is required").min(6, "too short").max(20, "too long"),
 });
 
 export default function FormDialog() {
@@ -35,16 +33,19 @@ export default function FormDialog() {
       >
         <Formik
           initialValues={{
-            Email: "",
+            Name: "",
             Password: "",
           }}
-          onSubmit={(e) => {
-            e.preventDefault();
+          
+          onSubmit={values => {
+            console.log(values);
+            data.handleClose1()
           }}
           validationSchema={validationSchema}
+
         >
-          {({ errors, values, handleChange, touched, onSubmit }) => (
-            <Form onSubmit={() => onSubmit}>
+          {({ errors, values, handleChange, touched }) => (
+            <Form >
               <div className="logo">
                 <img src='/assets/logo.png' alt="logo"></img>
               </div>
@@ -52,13 +53,15 @@ export default function FormDialog() {
                 Registration
               </DialogTitle>
               <br />
-              <DialogContent>
+              <DialogContent className="inputs">
                 <label htmlFor="name" style={{fontWeight:'bold'}}>Name:</label>
                 <TextField
+                  name="Name"
                   margin="dense"
-                  id="name"
+                  id="Name"
                   label="Name"
                   type="text"
+                  inputProps={ariaLabel}
                   fullWidth
                   variant="outlined"
                   value={values.Name}
@@ -68,6 +71,7 @@ export default function FormDialog() {
                 />
                 <label htmlFor="Password" style={{fontWeight:'bold'}}>Password:</label>
                 <TextField
+                name="Password"
                   margin="dense"
                   id="Password"
                   label="Password"
@@ -90,7 +94,6 @@ export default function FormDialog() {
                 }}
               >
                 <Button
-                  onClick={data.handleClose1}
                   type="submit"
                   variant="contained"
                   style={{ backgroundColor: "#F4683C", width: "30%" }}
