@@ -63,7 +63,7 @@ export default function Home() {
             <h1>Good Morning</h1>
           )}
         </div>
-        <div className="carousel">
+        <div className="carousels">
         <h2>Recent Books</h2>
 
           <Carousel responsive={data.responsive}>
@@ -98,7 +98,7 @@ export default function Home() {
                   publisher: book.publisher,
                 };
                 return (
-                  <div key={book.id}>
+                  <div key={book.id} className="carsoel">
                     <Link
                       to="/preview"
                       state={prop}

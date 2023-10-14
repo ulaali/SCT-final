@@ -112,9 +112,8 @@
     .lds-default2{
       left: 40%;
     }
-    .search-page{
-      margin-left: -20px;
-    }
+    
+    
      
  }
 
@@ -122,12 +121,10 @@
   .res-books{
     grid-template-columns: auto;
   }
-  .search-page{
-    margin-right: -20px;
-  }
   .lds-default2{
     left: 40%;
   }
+  
 }
 
 
@@ -139,10 +136,6 @@
   .lds-default2{
     left: 40%;
   }
-  .search-page{
-    margin-left: -20px;
-
-  }
 }
 
 
@@ -153,10 +146,7 @@
   .lds-default2{
     left: 40%;
   }
-  .search-page{
-    margin-left: 0px;
-
-  }
+ 
 } 
 
 
@@ -167,8 +157,26 @@
   .lds-default2{
     left: 44%;
   }
-  .search-page{
-    margin-left: 65px;
-
-  }
+  
 } 
+
+
+@media  only screen and (max-width:285px){
+  
+  .res-books{
+    grid-template-columns: auto;
+  }
+  .search-page{
+    display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: right;
+  margin-left: -50px;
+  }
+  .search-page input{
+    width: 100px;
+  }
+  .lds-default2{
+    left: 30%;
+  }
+}

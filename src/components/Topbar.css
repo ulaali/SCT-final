@@ -176,3 +176,24 @@ select option {
         width: 200px;
     }
   }
+
+
+  @media  only screen and (max-width:285px){
+    .menu-icon{
+        display: block;
+        width: 6%;
+        height: 24%;
+        margin-bottom: 20px;
+    }
+   .Topbar{
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+    flex-direction: row;
+    column-gap: 50px;
+   }
+    .search{
+        width: 170px;
+        margin-right: 380px;
+    }
+  }

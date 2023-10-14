@@ -95,6 +95,9 @@ h2 {
     color: white;
     cursor: pointer;
 }
+.carousels{
+  margin-left: 27px;
+}
 
   @media  only screen and (max-width:740px) {
     .qouts{
@@ -103,6 +106,19 @@ h2 {
     .greeting{
       margin-top: 20px;
     }
+    .greeting{
+      font-size: 1.2rem;
+      margin-top: 40px;
+      margin-left: 8px;
+    }
+    .carousels{
+      margin-left: 10px;
+    }
+    .intro{
+      font-size: 1rem;
+      margin-left: 0px;
+      margin-right: 25px;
+    }
   }
 
 
@@ -110,7 +126,19 @@ h2 {
   
 @media  only screen and (max-width:376px)  {
   .greeting{
-    margin-top: 20px;
+    font-size: 1.2rem;
+    margin-top: 40px;
+    margin-left: 8px;
+    margin-top: 60px;
+
+  }
+  .carousels{
+    margin-left: 10px;
+  }
+  .intro{
+    font-size: 1rem;
+    margin-left: 0px;
+    margin-right: 25px;
   }
 }
 
@@ -118,7 +146,19 @@ h2 {
 
 @media  only screen and (min-width:380px) and (max-width:420px)  {
   .greeting{
-   margin-top: 20px;
+    font-size: 1.2rem;
+    margin-top: 40px;
+    margin-left: 8px;
+    margin-top: 60px;
+
+  }
+  .carousels{
+    margin-left: 10px;
+  }
+  .intro{
+    font-size: 1rem;
+    margin-left: 0px;
+    margin-right: 25px;
   }
 }
 
@@ -126,10 +166,70 @@ h2 {
 @media  only screen and (max-width:415px) {
   
   .greeting{
+    font-size: 1.2rem;
+    margin-top: 40px;
+    margin-left: 8px;
+    margin-top: 60px;
+  }
+  .carousels{
+    margin-left: 10px;
+  }
+  .intro{
+    font-size: 1rem;
+    margin-left: 0px;
+    margin-right: 25px;
     margin-top: 20px;
-  }  
+  }
 }
   
+
+
+
+
+@media  only screen and (max-width:285px) {
+  
+  .intro{
+    font-size: 0.7rem;
+    margin-left: 0px;
+    margin-right: 25px;
+  }
+  .btns{
+    font-size: 0.5rem;
+  }
+  .greeting{
+    font-size: 0.9rem;
+    margin-top: 40px;
+    margin-left: 8px;
+  }
+  
+  .carousels{
+    margin-left: 10px;
+  }
+}
+
+@media  only screen and (max-width:365px){
+ 
+  .intro{
+    font-size: 0.7rem;
+    margin-left: 0px;
+    margin-right: 25px;
+  }
+  .btns{
+    font-size: 0.5rem;
+  }
+  .greeting{
+    font-size: 0.9rem;
+    margin-top: 40px;
+    margin-left: 8px;
+  }
+  .carousels{
+    margin-left: 10px;
+  }
+
+}
+
+
+
 
 
 
