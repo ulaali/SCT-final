@@ -136,6 +136,7 @@ export default function Preview() {
         <h4>What is it About?</h4>
         <p>{prop.description}</p>
         <div className="commentSection">
+          <p className="p">What Our Readers Say? </p>
         <CommentsSection bookTitle={prop.title}/>
 
         </div>

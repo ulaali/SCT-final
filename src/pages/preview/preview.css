@@ -3,6 +3,10 @@
     background-color: #F3F3F7;
     height: fit-content;
 }
+.commentSection .p{
+    font-weight: bold;
+    margin-top: 10%;
+}
 .content{
     display: flex;
     flex-direction: row;
@@ -165,5 +169,30 @@ ul li{
     }
     .heart{
         width: 8% !important;
+    }
+ }
+
+ @media  only screen and (max-width:545px){
+    .book-image{
+        width: 50%;
+        height: 250px;
+        padding: 12px;
+    }
+    .heart{
+        width: 7% !important;
+    }
+    .desc{
+        margin-left: 10px;
+    }
+    .commentSection{
+        margin-left: 0px;
+        width: 100%;
+    }
+    .commentSection p{
+        font-weight: bold;
+        margin-top: 20%;
+    }
+    .btn1{
+        font-size: 0.7rem !important;
     }
  }

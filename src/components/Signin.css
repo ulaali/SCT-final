@@ -41,3 +41,23 @@
     
     }
   }
+
+  @media  only screen and (max-width:285px) {
+  
+    .logo{
+        margin-left: -20px;
+        width: 80%;
+        height: 25%;
+    }
+    label{
+        font-size: 0.8rem;
+    }
+    .Button{
+        font-size: 0.7rem !important;
+        width: 80% !important; 
+    }
+    .google{
+        width: 12% !important;
+        height: 12% !important;
+    }
+  }

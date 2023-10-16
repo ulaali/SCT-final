@@ -117,3 +117,24 @@ ul{
   font-weight: bold;
 }
 } 
+
+
+@media  only screen and (max-width:285px){
+  .logo{
+    width: 59% !important;
+  height: 7%;
+  margin-left: 40px !important;
+  }
+}
+
+@media  only screen and (max-width:545px){
+
+  .logo{
+      width: 59% !important;
+    height: 17% !important;
+    margin-left: 30px !important;
+  }
+  ul{
+    font-weight: 400;
+  }
+}

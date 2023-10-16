@@ -14,6 +14,7 @@ import "./Signin.css";
 import { TextField } from "@mui/material";
 
 
+
 const ariaLabel = { 'aria-label': 'description' };
 
 const validationSchema = Yup.object().shape({
@@ -55,13 +56,12 @@ export default function FormDialog() {
               <br />
               <DialogContent className="inputs">
                 <label htmlFor="name" style={{fontWeight:'bold'}}>Name:</label>
-                <TextField
+                <Input
                   name="Name"
                   margin="dense"
                   id="Name"
                   label="Name"
                   type="text"
-                  inputProps={ariaLabel}
                   fullWidth
                   variant="outlined"
                   value={values.Name}
@@ -70,7 +70,7 @@ export default function FormDialog() {
                   helperText={errors.Name}
                 />
                 <label htmlFor="Password" style={{fontWeight:'bold'}}>Password:</label>
-                <TextField
+                <Input
                 name="Password"
                   margin="dense"
                   id="Password"
@@ -94,6 +94,7 @@ export default function FormDialog() {
                 }}
               >
                 <Button
+                className="Button"
                   type="submit"
                   variant="contained"
                   style={{ backgroundColor: "#F4683C", width: "30%" }}
@@ -111,11 +112,13 @@ export default function FormDialog() {
                 >
                   <DialogContentText>Not A User ?</DialogContentText>
                   <Button
+                  className="Button"
                     variant="standard"
                     onClick={data.signInWithGoogle}
                   >
                     <img
                       src='/assets/google.png'
+                      className="google"
                       style={{ width: "4%", height: "4%", padding: "10px" }}
                       alt="google"
                     ></img>{" "}
