@@ -15,8 +15,8 @@ export default function Favourite() {
     !data.fav[0]? <p>No Favourite books yet</p>:data.fav.map((book,index) => {
       let prop = {
         image:book.volumeInfo?.imageLinks?.smallThumbnail || book.image,
-        author:book.volumeInfo?.authors ? book.volumeInfo?.authors?.map((author) => {
-          return author}):'No author Provided' || book.author,
+        author:book.author || book.volumeInfo?.authors ? book.volumeInfo?.authors?.map((author) => {
+          return author}):'No author Provided' ,
         title: book.volumeInfo?.title || book.title,
         rate: "4.5/5",
         description: book.volumeInfo?.description ? book.volumeInfo?.description:'No description provided' || book.description,
