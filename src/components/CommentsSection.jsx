@@ -108,4 +108,3 @@ export default function CommentsSection({ bookTitle }) {
     </div>
   );
 }
-// type={data.isAuth ? 'submit' : ('button')}

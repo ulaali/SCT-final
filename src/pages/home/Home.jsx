@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Book from "../../components/Book";
 import Qouts from "../../components/Quots";
 import Context from "../../Data";
@@ -9,45 +9,46 @@ import "./Home.css";
 import { Link } from "react-router-dom";
 export default function Home() {
   const data = useContext(Context);
-  const time=new Date();
+  const time = new Date();
 
   return (
     <div style={{ backgroundColor: "#F3F3F7" }} className="home-com">
       <div className="hero">
         <div className="intro">
-          
           <div>
-          <h1>
-            Explore Hundreds Of <span style={{ color: "#F4683C" }}>Free</span>
-            <br /> Books Online
-          </h1>
-          <p>
-            <span style={{ color: "#F4683C", fontSize: "1.5rem" }}>
-              Space out{" "}
-            </span>{" "}
-            in our online library where you can read and explore the
-            <br /> best and most famous books and articles
-          </p>
-          <div className="btns">
-            {data.isAuth ? (
-      <button className="signin-hero" onClick={data.signUserOut}>
-        Sign Out
-      </button>
-    ) : (
-      <>
-        <button className="signin-hero" onClick={data.handleClickOpen1}>
-          Sign Up
-        </button>
-      </>
-    )}
-            <button className="search-btn" onClick={data.handleFocus}>
-              Search Now!
-            </button>
-          </div>
-          
+            <h1>
+              Explore Hundreds Of <span style={{ color: "#F4683C" }}>Free</span>
+              <br /> Books Online
+            </h1>
+            <p>
+              <span style={{ color: "#F4683C", fontSize: "1.5rem" }}>
+                Space out{" "}
+              </span>{" "}
+              in our online library where you can read and explore the
+              <br /> best and most famous books and articles
+            </p>
+            <div className="btns">
+              {data.isAuth ? (
+                <button className="signin-hero" onClick={data.signUserOut}>
+                  Sign Out
+                </button>
+              ) : (
+                <>
+                  <button
+                    className="signin-hero"
+                    onClick={data.handleClickOpen1}
+                  >
+                    Sign Up
+                  </button>
+                </>
+              )}
+              <button className="search-btn" onClick={data.handleFocus}>
+                Search Now!
+              </button>
+            </div>
           </div>
           <div>
-          <img src='/assets/logo.png' alt="logo"></img>
+            <img src="/assets/logo.png" alt="logo"></img>
           </div>
         </div>
         <div>
@@ -64,7 +65,7 @@ export default function Home() {
           )}
         </div>
         <div className="carousels">
-        <h2>Recent Books</h2>
+          <h2>Recent Books</h2>
 
           <Carousel responsive={data.responsive}>
             {data.loading ? (
@@ -100,14 +101,12 @@ export default function Home() {
                 return (
                   <div key={book.id} className="carsoel">
                     <Link
-                      to="/preview"
+                      to={`/preview/${book.title}`}
                       state={prop}
                       style={{ textDecoration: "none" }}
                     >
                       <Book
                         image={book.image}
-                        // width={book.book_image_width}
-                        // height={book.book_image_height}
                         author={book.author}
                         title={book.title}
                         rate="4.5/5"
@@ -141,8 +140,6 @@ export default function Home() {
               data.convertedFamous.map((book, index) => {
                 let prop = {
                   image: book.image,
-                  // width={book.book_image_width}
-                  // height={book.book_image_height}
                   author: book.author,
                   title: book.title,
                   rate: "4.5/5",
@@ -154,7 +151,7 @@ export default function Home() {
                 return (
                   <div key={book.id}>
                     <Link
-                      to="/preview"
+                      to={`/preview/${book.title}`}
                       state={prop}
                       style={{ textDecoration: "none" }}
                     >
@@ -206,7 +203,7 @@ export default function Home() {
                 return (
                   <div key={article.id}>
                     <Link
-                      to="/preview"
+                      to={`/preview/${article.title}`}
                       state={prop}
                       style={{ textDecoration: "none" }}
                     >

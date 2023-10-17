@@ -23,7 +23,7 @@
 
 @media only screen and (max-width:380px) {
     .about-text{
-        left: 0%;
+        right: 10%;
         color: rgb(21, 20, 20);
     }
    
@@ -34,7 +34,7 @@
 
 @media only screen and (max-width:420px) {
     .about-text{
-        left: 4%;
+        right: 12%;
         color: rgb(21, 20, 20);
     }
    
@@ -77,6 +77,20 @@
   }
   
   
-  @media  only screen and (max-width:415px){
- 
+  @media  only screen and (min-width:825px) and (max-width:850px){
+    .about-text{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: rgb(21, 20, 20);
+        position: absolute;
+        top: 16%;
+        left: 10%; 
+    }
+    *{
+        font-size: 1.5rem !important;
+    }
+   
   }

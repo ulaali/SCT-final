@@ -86,12 +86,10 @@ const favchecker=(id)=>{
 }
 const Readlaterchecker=(id)=>{
   return readlater.some((book)=>book.id === id)
-  // return boolean
 }
  
   const responsive = {
     superLargeDesktop: {
-      // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
       items: 5,
     },
@@ -198,12 +196,15 @@ const Readlaterchecker=(id)=>{
     } catch (err) {
       console.error(err);
     }
+    handleClose1()
   };
   const signUserOut = async () => {
     await signOut(auth);
     cookies.remove("auth-token");
     setIsAuth(false);
   };
+
+  
 
   return (
     <Context.Provider
@@ -251,8 +252,6 @@ const Readlaterchecker=(id)=>{
         showNavbar,
         setShowNavbar,
         handleHideNavbar,
-        
-        
       }}
     >
       {children}

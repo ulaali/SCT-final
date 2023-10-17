@@ -17,13 +17,13 @@ export default function Book({ image, author, title, rate}) {
             alt="book cover"
           />
           <CardContent > 
-            <Typography gutterBottom variant="h5" component="div"
+            <Typography gutterBottom variant="h6" component="div"
              style={{display:'-webkit-box',WebkitBoxOrient:'vertical',overflow:'hidden',lineClamp:'1',WebkitLineClamp:'1',lineHeight:'1.8rem'}}
              >
               {title}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              By : {author}
+              {author}
             </Typography>
             <br />
             <Typography variant="body3" color="text.secondary">
@@ -35,5 +35,3 @@ export default function Book({ image, author, title, rate}) {
     </div>
   );
 }
-          //,lineHeight:'1.8rem',maxHeight:'3.6rem'
-          // display:'block',textOverflow:'ellipsis',wordWrap:'break-word',overflow:'hidden',lineClamp:'1'
