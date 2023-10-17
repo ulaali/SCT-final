@@ -25,7 +25,7 @@ export default function Favourite() {
         id:book.id,
       };
       return (
-        <Link to="/preview" style={{ textDecoration: "none" ,marginTop:'50px',marginLeft:'50px'}} state={prop} key={index}>
+        <Link to={`/preview/${book.id}`} style={{ textDecoration: "none" ,marginTop:'50px',marginLeft:'50px'}} state={prop} key={index}>
           <Book
             image={book.volumeInfo?.imageLinks?.smallThumbnail || book.image}
             author={book.volumeInfo?.authors ? book.volumeInfo?.authors?.map((author) => {

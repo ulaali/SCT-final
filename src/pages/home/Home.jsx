@@ -117,7 +117,6 @@ export default function Home() {
               })
             )}
           </Carousel>
-
           <h2>Most Famouse Books</h2>
 
           <Carousel responsive={data.responsive}>
