@@ -17,7 +17,7 @@ export default function Preview() {
         <img src={prop.image} className="book-image" alt="book cover" />
         <div>
           <h1 className="book-title">{prop.title}</h1>
-          <p>By: {prop.author}</p>
+          <p>{prop.author}</p>
           <p>second Edition</p>
           <div className="Rating">
             <Rating

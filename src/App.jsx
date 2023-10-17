@@ -19,7 +19,7 @@ function App() {
         <Route path='//favourite' element={<Favourite/>}></Route>
         <Route path='/readlater' element={<Readlater/>}></Route>
         <Route path='/about' element={<About/>}></Route>
-        <Route path='/preview/:title' element={<Preview/>}></Route>
+        <Route path='/preview' element={<Preview/>}></Route>
 
       </Routes>
         </Layout>

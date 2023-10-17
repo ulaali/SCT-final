@@ -90,7 +90,7 @@ export default function Searchpage() {
                 return (
                   <div key={book.id} className="res-book">
                     <Link
-                      to={`/preview/${book.id}`}
+                      to='/preview'
                       state={prop}
                       style={{ textDecoration: "none" }}
                       onClick={data.handleClose2}

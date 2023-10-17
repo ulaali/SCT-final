@@ -101,7 +101,7 @@ export default function Home() {
                 return (
                   <div key={book.id} className="carsoel">
                     <Link
-                      to={`/preview/${book.id}`}
+                      to='/preview'
                       state={prop}
                       style={{ textDecoration: "none" }}
                     >
@@ -150,7 +150,7 @@ export default function Home() {
                 return (
                   <div key={book.id}>
                     <Link
-                      to={`/preview/${book.id}`}
+                      to='/preview'
                       state={prop}
                       style={{ textDecoration: "none" }}
                     >
@@ -202,7 +202,7 @@ export default function Home() {
                 return (
                   <div key={article.id}>
                     <Link
-                      to={`/preview/${article.id}`}
+                      to='/preview'
                       state={prop}
                       style={{ textDecoration: "none" }}
                     >
