@@ -26,7 +26,7 @@ export default function Readlater() {
          id:book.id,
         };
         return (
-          <Link key={index} to="/preview" style={{ textDecoration: "none" ,marginTop:'50px',marginLeft:'50px'}} state={prop} >
+          <Link key={index} to={`/preview/${book.id}`} style={{ textDecoration: "none" ,marginTop:'50px',marginLeft:'50px'}} state={prop} >
             <Book
               image={book.volumeInfo?.imageLinks?.smallThumbnail || book.image}
               author={book.volumeInfo?.authors ? book.volumeInfo?.authors?.map((author) => {
