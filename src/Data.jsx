@@ -12,7 +12,6 @@ export function Data({ children }) {
     "https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?&limit=10&api-key=i9NjHDB2X3wakPuA4UE9uglGpAnTeUMm";
   const api2 = "https://example-data.draftbit.com/books?_limit=10";
   const api3 = "https://example-data.draftbit.com/articles?_limit=10";
-  
   const [bold, setBold] = useState(false);
   const [famous, setFamous] = useState([]);
   const [Latest, setLatest] = useState({});
@@ -27,9 +26,6 @@ const [search, setSearch] = useState({});
 const [text, setText] = useState('');
 const [categoryy, setCategory] = useState('');
 const [showNavbar, setShowNavbar] = useState(false)
-
-
-
 
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar)

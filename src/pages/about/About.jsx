@@ -2,7 +2,12 @@ import React from "react";
 import "./About.css";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import Context from "../../Data";
+import { useContext } from "react";
+
 export default function About() {
+  const data = useContext(Context);
+
   return (
     <div className="about">
       <svg

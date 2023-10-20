@@ -23,7 +23,6 @@ export default function Navbar() {
             className={`nav-elements ${data.showNavbar? 'active':''}`}
           >
             <img src='/assets/logo.png' alt="logo" className="logo"/>
-        
             <ul>
               <li onClick={data.handleHideNavbar}>
                 <Link to="/" className={`Link ${active.home? 'active':''}`} onClick={()=>{
