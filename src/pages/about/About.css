@@ -26,7 +26,14 @@
         right: 10%;
         color: rgb(21, 20, 20);
     }
-   
+    .rights h3{
+        font-size: 0.7rem !important;
+    
+       }
+       .rights img{
+        width: 10% !important; 
+        height: 3% !important;
+       }
     
 }
 
@@ -34,10 +41,17 @@
 
 @media only screen and (max-width:420px) {
     .about-text{
-        right: 12%;
+        right: 19%;
         color: rgb(21, 20, 20);
     }
-   
+    .rights h3{
+        font-size: 0.7rem !important;
+    
+       }
+       .rights img{
+        width: 10% !important; 
+        height: 3% !important;
+       }
     
 }
 
@@ -50,6 +64,14 @@
    .rights{
     left: 13%;
    }
+   .rights h3{
+    font-size: 0.7rem !important;
+
+   }
+   .rights img{
+    width: 10% !important; 
+    height: 3% !important;
+   }
     
 }
 
@@ -61,7 +83,42 @@
    .rights{
     left: 13%;
    }
+   .rights h3{
+    font-size: 0.7rem !important;
+
+   }
+   .rights img{
+    width: 10% !important; 
+    height: 3% !important;
+   }
 }
+
+
+@media  only screen and (max-width:285px){
+    .about-text{
+        left: 10% !important;
+        color: rgb(21, 20, 20);
+    }
+    .about-text p{
+        font-size: 0.9rem !important;
+
+    }
+
+   .rights{
+    left: 13%;
+   }
+   .rights h3{
+    font-size: 0.7rem !important;
+
+   }
+   .rights img{
+    width: 10% !important; 
+    height: 3% !important;
+   }
+}
+
+
+
 
 @media  only screen and (max-width:920px){
     .about-text{

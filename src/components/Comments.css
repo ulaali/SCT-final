@@ -143,19 +143,17 @@
  @media  only screen and (max-width:285px){
    
   .chat-app{
-    padding: 50px;
-      margin-left: -30px;
-      width: 100%;
+    padding: 40px;
+    margin-left: -30px;
+    width: 100%;
     
   }
-  
-  
   .new-comment-form{
-    padding: 10px;
+    padding: 8px;
   }
   .new-comment-input{
     font-size: 13px;
-    padding: 10px;
+    padding: 8px !important;
   }
  .comment-button{
   padding: 5px 5px !important;
@@ -163,7 +161,9 @@
  .avatar{
   padding: 10px;
  }
-
+ .new-comment-input::placeholder{
+  font-size: 0.7rem !important;
+ }
  }
 
 

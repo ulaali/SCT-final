@@ -145,15 +145,15 @@ ul li{
         width: 100%;
     }
     .book-image{
-        width: 29%;
-        height: 150px;
+        width: 27% !important;
+        height: 180px !important;
         padding: 8px;
     }
     .preview p, .preview ul li{
-      font-size: 0.7rem;
+      font-size: 0.6rem;
     }
     .desc{
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         margin-left: 10px;
         margin-top: 20px;
     }
@@ -164,7 +164,7 @@ ul li{
         margin-left: 5px;
     }
     .book-title{
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
     .accept{
         width: 4% !important;
