@@ -4,7 +4,9 @@ import "./Topbar.css";
 import "../App.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import Context from "../Data";
+import Context from "../store/Data";
+
+
 export default function Navbar() {
   const data = useContext(Context);
   const [active, setActive] = useState({

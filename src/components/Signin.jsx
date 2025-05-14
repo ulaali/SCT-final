@@ -5,27 +5,33 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import Context from "../Data";
-import { useContext } from "react";
 import * as Yup from "yup";
 import { Formik, Form } from "formik";
-import Input from '@mui/material/Input';
+import Input from "@mui/material/Input";
 import "./Signin.css";
+import { useAuthStore } from "../store/auth";
+
 
 
 const validationSchema = Yup.object().shape({
-  Name: Yup.string().required("this feild is required").min(2, "too short").max(20, "too long"),
-  Password: Yup.string().required("this feild is required").min(6, "too short").max(20, "too long"),
+  Name: Yup.string()
+    .required("this feild is required")
+    .min(2, "too short")
+    .max(20, "too long"),
+  Password: Yup.string()
+    .required("this feild is required")
+    .min(6, "too short")
+    .max(20, "too long"),
 });
 
 export default function FormDialog() {
-  const data = useContext(Context);
-
+  const AuthStore = useAuthStore((state) => state);
+ 
   return (
     <div>
       <Dialog
-        open={data.open}
-        onClose={data.handleClose1}
+        open={AuthStore.loginModalOpen}
+        onClose={AuthStore.loginModalClose}
         style={{ height: "700px" }}
       >
         <Formik
@@ -33,25 +39,24 @@ export default function FormDialog() {
             Name: "",
             Password: "",
           }}
-          
-          onSubmit={values => {
-            console.log(values);
-            data.handleClose1()
+          onSubmit={(values) => {
+            AuthStore.login();
           }}
           validationSchema={validationSchema}
-
         >
           {({ errors, values, handleChange, touched }) => (
-            <Form >
+            <Form>
               <div className="logo">
-                <img src='/assets/logo.png' alt="logo"></img>
+                <img src="/assets/logo.png" alt="logo"></img>
               </div>
               <DialogTitle style={{ textAlign: "center" }}>
                 Registration
               </DialogTitle>
               <br />
               <DialogContent className="inputs">
-                <label htmlFor="name" style={{fontWeight:'bold'}}>Name:</label>
+                <label htmlFor="name" style={{ fontWeight: "bold" }}>
+                  Name:
+                </label>
                 <Input
                   name="Name"
                   margin="dense"
@@ -65,9 +70,11 @@ export default function FormDialog() {
                   error={errors.Name && touched.Name}
                   helperText={errors.Name}
                 />
-                <label htmlFor="Password" style={{fontWeight:'bold'}}>Password:</label>
+                <label htmlFor="Password" style={{ fontWeight: "bold" }}>
+                  Password:
+                </label>
                 <Input
-                name="Password"
+                  name="Password"
                   margin="dense"
                   id="Password"
                   label="Password"
@@ -90,8 +97,9 @@ export default function FormDialog() {
                 }}
               >
                 <Button
-                className="Button"
+                  className="Button"
                   type="submit"
+                  onClick={AuthStore.login}
                   variant="contained"
                   style={{ backgroundColor: "#F4683C", width: "30%" }}
                 >
@@ -108,12 +116,11 @@ export default function FormDialog() {
                 >
                   <DialogContentText>Not A User ?</DialogContentText>
                   <Button
-                  className="Button"
+                    className="Button"
                     variant="standard"
-                    onClick={data.signInWithGoogle}
                   >
                     <img
-                      src='/assets/google.png'
+                      src="/assets/google.png"
                       className="google"
                       style={{ width: "4%", height: "4%", padding: "10px" }}
                       alt="google"

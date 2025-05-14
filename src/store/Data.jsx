@@ -1,9 +1,9 @@
 import axios from "axios";
 import { createContext, useState, useEffect, useRef } from "react";
-import _ from 'lodash'
+import _ from "lodash";
 import Cookies from "universal-cookie";
-import {auth,provider} from './firbaseConfig';
-import { signInWithPopup,signOut } from "firebase/auth";
+import { auth, provider } from "../firbaseConfig";
+import { signInWithPopup, signOut } from "firebase/auth";
 const cookies = new Cookies();
 const Context = createContext();
 
@@ -12,78 +12,80 @@ export function Data({ children }) {
     "https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?&limit=10&api-key=i9NjHDB2X3wakPuA4UE9uglGpAnTeUMm";
   const api2 = "https://example-data.draftbit.com/books?_limit=10";
   const api3 = "https://example-data.draftbit.com/articles?_limit=10";
-  const [bold, setBold] = useState(false);
   const [famous, setFamous] = useState([]);
   const [Latest, setLatest] = useState({});
   const [articles, setArticles] = useState([]);
   const [aauth, setAuth] = useState(false);
-  const [isAuth, setIsAuth] = useState(cookies.get("auth-token"));
   const [value, setValue] = useState(2);
-const [fav, setFav] = useState([]);
-const [loading, setloading] = useState(true);
-const [readlater, setReadlater] = useState([]);
-const [search, setSearch] = useState({});
-const [text, setText] = useState('');
-const [categoryy, setCategory] = useState('');
-const [showNavbar, setShowNavbar] = useState(false)
+  const [fav, setFav] = useState([]);
+  const [loading, setloading] = useState(true);
+  const [readlater, setReadlater] = useState([]);
+  const [search, setSearch] = useState({});
+  const [text, setText] = useState("");
+  const [categoryy, setCategory] = useState("");
+  const [showNavbar, setShowNavbar] = useState(false);
 
+
+
+
+  
   const handleShowNavbar = () => {
-    setShowNavbar(!showNavbar)
-  }
-
+    setShowNavbar(!showNavbar);
+  };
 
   const handleHideNavbar = () => {
-    setShowNavbar(false)
-  }
-useEffect(()=>{
-  fetch(`https://www.googleapis.com/books/v1/volumes?q=${text}`)
-  .then((res) => res.json())
-  .then((res) => {
-    setSearch(res);
-    setloading(false);
-  })
-},[text])
+    setShowNavbar(false);
+  };
+  useEffect(() => {
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${text}`)
+      .then((res) => res.json())
+      .then((res) => {
+        setSearch(res);
+        setloading(false);
+      });
+  }, [text]);
 
-useEffect(()=>{
-  fetch(`https://www.googleapis.com/books/v1/volumes?q=${text}+subject:${categoryy}`)
-  .then((res) => res.json())
-  .then((res) => {
-    setSearch(res);
-    setloading(false);
-  })
-},[categoryy,text])
+  useEffect(() => {
+    fetch(
+      `https://www.googleapis.com/books/v1/volumes?q=${text}+subject:${categoryy}`
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        setSearch(res);
+        setloading(false);
+      });
+  }, [categoryy, text]);
 
+  const addfav = (book) => {
+    const oldfav = [...fav];
+    const newfav = oldfav.concat(book);
+    setFav(newfav);
+  };
+  const removefav = (id) => {
+    const oldfav = [...fav];
+    const newfav = oldfav.filter((book) => book.id !== id);
+    setFav(newfav);
+  };
 
-const addfav=(book)=>{
-  const oldfav=[...fav];
-  const newfav=oldfav.concat(book);
-  setFav(newfav);
-};
-const removefav=(id)=>{
-  const oldfav=[...fav];
-  const newfav=oldfav.filter((book)=>book.id !== id);
-  setFav(newfav);
-}
+  const addReadLater = (book) => {
+    const oldRead = [...readlater];
+    const newRead = oldRead.concat(book);
+    setReadlater(newRead);
+  };
+  const removeRead = (id) => {
+    const oldRead = [...readlater];
+    const newRead = oldRead.filter((book) => book.id !== id);
+    setReadlater(newRead);
+  };
 
-const addReadLater=(book)=>{
-  const oldRead=[...readlater];
-  const newRead=oldRead.concat(book);
-  setReadlater(newRead);
-};
-const removeRead=(id)=>{
-  const oldRead=[...readlater];
-  const newRead=oldRead.filter((book)=>book.id !== id);
-  setReadlater(newRead);
-}
+  const favchecker = (id) => {
+    const boolean = fav.some((book) => book.id === id);
+    return boolean;
+  };
+  const Readlaterchecker = (id) => {
+    return readlater.some((book) => book.id === id);
+  };
 
-const favchecker=(id)=>{
-  const boolean=fav.some((book)=>book.id === id)
-  return boolean
-}
-const Readlaterchecker=(id)=>{
-  return readlater.some((book)=>book.id === id)
-}
- 
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -103,60 +105,54 @@ const Readlaterchecker=(id)=>{
     },
   };
 
-   useEffect(()=>{
-    axios.get(api).then(res=>{
-      setLatest(res.data.results.books)
+  useEffect(() => {
+    axios.get(api).then((res) => {
+      setLatest(res.data.results.books);
       setloading(false);
-     })
-
-  },[])
+    });
+  }, []);
   const convertedLatest = _.map(Latest, (item) => ({
     title: item.title,
     author: item.author,
     image: item.book_image,
-    description:item.description,
-    url:item.book_uri,
-    id:item.primary_isbn10,
-    publisher:item.publisher,
-    book:item
+    description: item.description,
+    url: item.book_uri,
+    id: item.primary_isbn10,
+    publisher: item.publisher,
+    book: item,
   }));
 
-  useEffect(()=>{
-    axios.get(api2).then(res=>{
-      setFamous(res.data)
+  useEffect(() => {
+    axios.get(api2).then((res) => {
+      setFamous(res.data);
       setloading(false);
-
-    })
-
-  },[])
+    });
+  }, []);
 
   const convertedFamous = _.map(famous, (item) => ({
     title: item.title,
     author: item.authors,
     image: item.image_url,
-    description:item.description,
-    id:item.num_pages,
-    publisher:item.format,
-    book:item
+    description: item.description,
+    id: item.num_pages,
+    publisher: item.format,
+    book: item,
   }));
 
-  useEffect(()=>{
-    axios.get(api3).then(res=>{
-      setArticles(res.data)
+  useEffect(() => {
+    axios.get(api3).then((res) => {
+      setArticles(res.data);
       setloading(false);
-
-    })
-
-  },[])
+    });
+  }, []);
   const convertedArticle = _.map(articles, (item) => ({
     title: item.title,
     author: item.authors,
     image: item.img_src,
-    description:item.tags,
-    url:item.url,
-    id:item.id,
-    book:item
-
+    description: item.tags,
+    url: item.url,
+    id: item.id,
+    book: item,
   }));
   const [open, setOpen] = useState(false);
 
@@ -186,28 +182,20 @@ const Readlaterchecker=(id)=>{
     try {
       const result = await signInWithPopup(auth, provider);
       cookies.set("auth-token", result.user.refreshToken);
-      setIsAuth(true);
-      
-
     } catch (err) {
       console.error(err);
     }
-    handleClose1()
+    handleClose1();
   };
   const signUserOut = async () => {
     await signOut(auth);
     cookies.remove("auth-token");
-    setIsAuth(false);
   };
-
-  
 
   return (
     <Context.Provider
       value={{
         responsive,
-        bold,
-        setBold,
         handleFocus,
         inputRef,
         handleClickOpen1,
@@ -223,8 +211,6 @@ const Readlaterchecker=(id)=>{
         convertedArticle,
         aauth,
         setAuth,
-        isAuth,
-        setIsAuth,
         signInWithGoogle,
         signUserOut,
         value,

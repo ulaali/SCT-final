@@ -2,7 +2,7 @@ import React from "react";
 import "./About.css";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import Context from "../../Data";
+import Context from "../../store/Data";
 import { useContext } from "react";
 
 export default function About() {

@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Book from "../../components/Book";
 import Qouts from "../../components/Quots";
-import Context from "../../Data";
+import Context from "../../store/Data";
 import { useContext } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./Home.css";
 import { Link } from "react-router-dom";
+import { useAuthStore } from "../../store/auth";
+
 export default function Home() {
   const data = useContext(Context);
   const time = new Date();
+  const SigninStore = useAuthStore((state) => state);
 
   return (
     <div style={{ backgroundColor: "#F3F3F7" }} className="home-com">
@@ -28,15 +31,15 @@ export default function Home() {
               <br /> best and most famous books and articles
             </p>
             <div className="btns">
-              {data.isAuth ? (
-                <button className="signin-hero" onClick={data.signUserOut}>
+              {SigninStore.isAuth ? (
+                <button className="signin-hero" onClick={SigninStore.logout}>
                   Sign Out
                 </button>
               ) : (
                 <>
                   <button
                     className="signin-hero"
-                    onClick={data.handleClickOpen1}
+                    onClick={SigninStore.loginModalOpenModal}
                   >
                     Sign Up
                   </button>
@@ -69,7 +72,7 @@ export default function Home() {
 
           <Carousel responsive={data.responsive}>
             {data.loading ? (
-              <div class="lds-default">
+              <div className="lds-default">
                 <div></div>
                 <div></div>
                 <div></div>
@@ -101,7 +104,7 @@ export default function Home() {
                 return (
                   <div key={book.id} className="carsoel">
                     <Link
-to={`/preview/${book.id}`}
+                      to={`/preview/${book.id}`}
                       state={prop}
                       style={{ textDecoration: "none" }}
                     >
@@ -121,7 +124,7 @@ to={`/preview/${book.id}`}
 
           <Carousel responsive={data.responsive}>
             {data.loading ? (
-              <div class="lds-default">
+              <div className="lds-default">
                 <div></div>
                 <div></div>
                 <div></div>
@@ -150,7 +153,7 @@ to={`/preview/${book.id}`}
                 return (
                   <div key={book.id}>
                     <Link
-to={`/preview/${book.id}`}
+                      to={`/preview/${book.id}`}
                       state={prop}
                       style={{ textDecoration: "none" }}
                     >
@@ -172,7 +175,7 @@ to={`/preview/${book.id}`}
           <h2>Explore Articles</h2>
           <Carousel responsive={data.responsive}>
             {data.loading ? (
-              <div class="lds-default">
+              <div className="lds-default">
                 <div></div>
                 <div></div>
                 <div></div>

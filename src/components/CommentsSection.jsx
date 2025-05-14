@@ -11,8 +11,9 @@ import {
   query
 } from "firebase/firestore";
 import "./Comments.css";
-import Context from "../Data";
+import Context from "../store/Data";
 import { useContext } from "react";
+import { useAuthStore } from "../store/auth";
 
 export default function CommentsSection({ bookTitle }) {
   const [newcomment, setNewcomment] = useState("");
@@ -20,6 +21,7 @@ export default function CommentsSection({ bookTitle }) {
   const messagesRef = collection(db, "comments");
   const data = useContext(Context);
   const queryComments = query(messagesRef,where('bookTitle',"==", bookTitle));
+  const SigninStore = useAuthStore((state) => state);
 
   useEffect(() => {
    const unsuscribe= onSnapshot(queryComments, (data) => {
@@ -99,9 +101,9 @@ export default function CommentsSection({ bookTitle }) {
           className="new-comment-input"
           onChange={(e) => setNewcomment(e.target.value)}
           value={newcomment}
-          onClick={data.isAuth ? ()=>'' : handleAlert}
+          onClick={SigninStore.isAuth ? ()=>'' : handleAlert}
         />
-        <button className="comment-button" type={data.isAuth? 'submit':'button'} onClick={data.isAuth ? ()=>'' : handleAlert}>
+        <button className="comment-button" type={SigninStore.isAuth? 'submit':'button'} onClick={SigninStore.isAuth ? ()=>'' : handleAlert}>
           Comment
         </button>
       </form>

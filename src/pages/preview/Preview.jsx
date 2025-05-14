@@ -1,16 +1,19 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import Rating from "@mui/material/Rating";
-import Context from "../../Data";
+import Context from "../../store/Data";
 import { useContext } from "react";
 import { Button } from "@mui/material";
 import "./preview.css";
 import CommentsSection from "../../components/CommentsSection";
+import { useAuthStore } from "../../store/auth";
+
 export default function Preview() {
   const location = useLocation();
   const data = useContext(Context);
   const prop = location.state;
-
+  const SigninStore = useAuthStore((state) => state);
+  
   return (
     <div className="preview">
       <div className="content">
@@ -68,7 +71,7 @@ export default function Preview() {
               <img
                 onClick={() => {
                   console.log(data.favchecker(prop.id));
-                  data.isAuth?
+                  SigninStore.isAuth?
                   data.removefav(prop.id)
                   :alert('you need to sign up first')
                 }}
@@ -81,7 +84,7 @@ export default function Preview() {
               <img
                 onClick={() => {
                   console.log(data.favchecker(prop.id));
-                  data.isAuth?
+                  SigninStore.isAuth?
                   data.addfav(prop.book)
                   :alert('you need to sign up first')
                 }}
@@ -111,7 +114,7 @@ export default function Preview() {
                 variant="outlined"
                 style={{ color: "#F4683C", border: "1px solid #F4683C" }}
                 onClick={() => 
-                  data.isAuth?
+                  SigninStore.isAuth?
                   data.addReadLater(prop.book):alert('you need to sign in first')}
                 className="btn1"
 

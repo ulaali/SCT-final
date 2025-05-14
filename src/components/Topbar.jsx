@@ -2,15 +2,16 @@ import * as React from "react";
 import { useContext,useState,useEffect} from "react";
 import "./Topbar.css";
 import Signin from "./Signin";
-import Context from "../Data";
+import Context from "../store/Data";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import { deepOrange } from "@mui/material/colors";
 import Searchpage from "./Searchpage";
 import "./Navbar.css";
-
+import { useAuthStore } from "../store/auth";
 export default function Topbar() {
   const data = useContext(Context);
+  const SigninStore = useAuthStore((state) => state);
   const [time, settime] = useState(new Date());
   const [date, setdate] = useState(new Date());
 
@@ -24,7 +25,6 @@ export default function Topbar() {
   }, []);
   return (
     <>
-
     <div className="Topbar">
     <img src='/assets/menu.png' alt="men" className="menu-icon"  onClick={data.handleShowNavbar}></img>
 
@@ -52,13 +52,13 @@ export default function Topbar() {
       <CalendarMonthIcon sx={{ color: deepOrange[600] }} fontSize="small" />{" "}
       {date.toLocaleDateString()}
     </p>
-    {data.isAuth ? (
-      <button className="signin" onClick={data.signUserOut}>
+    {SigninStore.isAuth ? (
+      <button className="signin" onClick={SigninStore.logout}>
         Sign Out
       </button>
     ) : (
       <>
-        <button className="signin" onClick={data.handleClickOpen1}>
+        <button className="signin" onClick={SigninStore.loginModalOpenModal}>
           Sign Up
         </button>
       </>
