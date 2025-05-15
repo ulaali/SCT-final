@@ -23,10 +23,7 @@ export function Data({ children }) {
   const [search, setSearch] = useState({});
   const [text, setText] = useState("");
   const [categoryy, setCategory] = useState("");
-  const [showNavbar, setShowNavbar] = useState(false);
-
-
-  
+  const [showNavbar, setShowNavbar] = useState(false);  
 
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar);
