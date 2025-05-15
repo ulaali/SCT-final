@@ -25,9 +25,6 @@ export function Data({ children }) {
   const [categoryy, setCategory] = useState("");
   const [showNavbar, setShowNavbar] = useState(false);
 
-
-
-
   
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar);
