@@ -26,6 +26,8 @@ export function Data({ children }) {
   const [showNavbar, setShowNavbar] = useState(false);
 
   
+
+  
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar);
   };
